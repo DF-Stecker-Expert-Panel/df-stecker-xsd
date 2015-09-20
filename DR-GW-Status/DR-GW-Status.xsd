@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="DR-GW-Interface/DR-GW-Status"
+           targetNamespace="DR-GW-Interface/DR-GW-Status"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:ctS="DR-GW-Interface/DR-GW-Status.CommonTypes"
+           xmlns:ct="DR-GW-Interface/CommonTypes">
+  <xs:annotation>
+    <xs:documentation/>
+  </xs:annotation>
+  <xs:import namespace="DR-GW-Interface/DR-GW-Status.CommonTypes"
+    schemaLocation="DR-GW-Status.CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/CommonTypes"
+    schemaLocation="../Types/CommonTypes.xsd"/>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Status_Send">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="status" type="ctS:typeStatus"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+

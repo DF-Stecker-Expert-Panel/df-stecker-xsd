@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="DR-GW-Interface/DR-GW-Call"
+           targetNamespace="DR-GW-Interface/DR-GW-Call"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:ct="DR-GW-Interface/CommonTypes"
+           xmlns:ctC="DR-GW-Interface/DR-GW-Call.CommonTypes">
+  <xs:annotation>
+    <xs:documentation>DR-GW-Call version 1.0</xs:documentation>
+  </xs:annotation>
+  <xs:import namespace="DR-GW-Interface/CommonTypes"
+    schemaLocation="../Types/CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/DR-GW-Call.CommonTypes"
+    schemaLocation="DR-GW-Call.CommonTypes.xsd"/>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Call_Select">
+    <xs:annotation>
+      <xs:documentation>The method reserves speech line for the targets of
+        selection operation, sets the selection level of the targets of
+        selection operation to given values.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="sel" type="ctC:typeSelection"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Call_Request">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Call request. All call related operations
+        are accomplished using this service.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="tetraCallId" type="xs:unsignedLong"
+              minOccurs="0"/>
+            <xs:element name="action" type="ctC:typeActionRequest"/>
+            <xs:element name="attributes" type="ctC:typeCallAttributes"
+              minOccurs="0"/>
+            <xs:element name="callingParty" type="ct:typeAddress"
+              minOccurs="0"/>
+            <xs:element name="calledParty" type="ct:typeAddress" minOccurs="0"/>
+            <xs:element name="workstationId" type="ctC:typeWorkstationId"
+              minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Call_PTTRequest">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Call PTTRequest.
+        Only "DemandTx" and "CeaseTx" actions only.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
+            <xs:element name="action" type="ctC:typePTTRequest"/>
+            <xs:element name="attributes" type="ctC:typeCallAttributes" minOccurs="0"/>
+            <xs:element name="talkingParty" type="ct:typeAddress" minOccurs="0"/>
+            <xs:element name="workstationId" type="ctC:typeWorkstationId" minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+
+
+

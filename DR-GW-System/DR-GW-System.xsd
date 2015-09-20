@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="DR-GW-Interface/DR-GW-System"
+           targetNamespace="DR-GW-Interface/DR-GW-System"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:ct="DR-GW-Interface/CommonTypes">
+</xs:schema>
+
+
+

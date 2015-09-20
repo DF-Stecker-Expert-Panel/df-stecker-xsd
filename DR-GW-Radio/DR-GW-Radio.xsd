@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="DR-GW-Interface/DR-GW-Radio"
+           targetNamespace="DR-GW-Interface/DR-GW-Radio"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
+           xmlns:ctG="DR-GW-Interface/DR-GW-Group.CommonTypes"
+           xmlns:ctR="DR-GW-Interface/DR-GW-Radio.CommonTypes"
+           xmlns:ct="DR-GW-Interface/CommonTypes">
+  <xs:annotation>
+    <xs:documentation/>
+  </xs:annotation>
+  <xs:import namespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes" schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/DR-GW-Group.CommonTypes" schemaLocation="../DR-GW-Group/DR-GW-Group.CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/DR-GW-Radio.CommonTypes" schemaLocation="DR-GW-Radio.CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_Get">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_GetList">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId"
+              minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_GetGroups">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="radio" type="ctR:typeRadio"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_Track">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
+            <xs:element name="stop" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_ChangeOPTA">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
+            <xs:element name="opta" type="ct:typeOPTA"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_EnDisable">
+    <xs:annotation>
+      <xs:documentation>This method is used to Enable the radio terminal over
+        the air or to Disable the radio terminal over the air. If no reason is
+        supplied, then the DF-Gateway sets the default reason.
+        See TCS API Description for all possible reasons for disabling.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
+            <xs:element name="reason" type="xs:unsignedByte" minOccurs="0"/>
+            <xs:element name="enabled" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

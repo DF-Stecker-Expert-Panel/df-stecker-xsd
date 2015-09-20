@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="DR-GW-Interface/DR-GW-Status.CommonTypes"
+           targetNamespace="DR-GW-Interface/DR-GW-Status.CommonTypes"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:ct="DR-GW-Interface/CommonTypes">
+  <xs:annotation>
+    <xs:documentation/>
+  </xs:annotation>
+  <xs:import namespace="DR-GW-Interface/CommonTypes"
+    schemaLocation="../Types/CommonTypes.xsd"/>
+    
+<!-- *********************************************************************** -->
+  <xs:complexType name="typeStatus">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="value" type="xs:unsignedShort"/>
+        <xs:element name="hexValue" type="xs:hexBinary"/>
+      </xs:choice>
+      <xs:element name="source" type="ct:typeAddress" minOccurs="0"/>
+      <xs:element name="target" type="ct:typeAddress"/>
+      <xs:element name="tstamp" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

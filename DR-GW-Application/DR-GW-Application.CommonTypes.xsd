@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="DR-GW-Interface/DR-GW-Application.CommonTypes"
+           targetNamespace="DR-GW-Interface/DR-GW-Application.CommonTypes"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
+           xmlns:ct="DR-GW-Interface/CommonTypes">
+  <xs:annotation>
+    <xs:documentation/>
+  </xs:annotation>
+  <xs:import namespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes" schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
+  
+<!-- *********************************************************************** -->
+  <xs:complexType name="typeApplication">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="addr" type="ct:typeSubscriberAddress"/>
+      <xs:element name="alias" type="xs:normalizedString"/>
+      <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

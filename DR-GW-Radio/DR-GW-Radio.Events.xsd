@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="DR-GW-Interface/DR-GW-Radio.Events"
+           targetNamespace="DR-GW-Interface/DR-GW-Radio.Events"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:ctR="DR-GW-Interface/DR-GW-Radio.CommonTypes"
+           xmlns:ct="DR-GW-Interface/CommonTypes">
+  <xs:annotation>
+    <xs:documentation/>
+  </xs:annotation>
+  <xs:import namespace="DR-GW-Interface/CommonTypes"
+    schemaLocation="../Types/CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/DR-GW-Radio.CommonTypes"
+    schemaLocation="DR-GW-Radio.CommonTypes.xsd"/>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_Response" type="ct:typeResponse">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+  </xs:element>
+
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_GetEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="ctR:typeRadio"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_GetListEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="ctR:typeRadio" minOccurs="0"
+              maxOccurs="unbounded"/>
+            <xs:element name="listEnd" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_GetGroupsEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="group" type="ct:typeSubscriberAddress" minOccurs="0"
+              maxOccurs="unbounded"/>
+            <xs:element name="listEnd" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_Event">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="ctR:typeRadio"/>
+            <xs:element name="delete" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_TrackEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="trackingData" type="ctR:typeRadioTrackingData"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_ChangeOPTAEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
+            <xs:element name="opta" type="ct:typeOPTA"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_EnDisableEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
+            <xs:element name="reason" type="xs:unsignedByte" minOccurs="0"/>
+            <xs:element name="enabled" type="xs:boolean"/>
+			<xs:element name="overTheAir" type="xs:boolean" minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_TrackSubscriptionEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
+            <xs:element name="stop" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

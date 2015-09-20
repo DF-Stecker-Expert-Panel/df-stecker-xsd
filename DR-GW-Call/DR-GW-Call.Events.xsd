@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="DR-GW-Interface/DR-GW-Call.Events"
+           targetNamespace="DR-GW-Interface/DR-GW-Call.Events"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:ct="DR-GW-Interface/CommonTypes"
+           xmlns:ctC="DR-GW-Interface/DR-GW-Call.CommonTypes">
+  <xs:annotation>
+    <xs:documentation/>
+  </xs:annotation>
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/DR-GW-Call.CommonTypes" schemaLocation="DR-GW-Call.CommonTypes.xsd"/>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Call_Response" type="ct:typeResponse">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+  </xs:element>
+
+<!-- *********************************************************************** -->
+  <xs:element name="Call_SelectEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="sel" type="ctC:typeSelection"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Call_Event">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Call event.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="tetraCallId" type="xs:unsignedLong"
+              minOccurs="0"/>
+            <xs:element name="action" type="ctC:typeActionEvent"/>
+            <xs:element name="attributes" type="ctC:typeCallAttributes"
+              minOccurs="0"/>
+            <xs:element name="callingParty" type="ct:typeAddress"
+              minOccurs="0"/>
+            <xs:element name="calledParty" type="ct:typeAddress" minOccurs="0"/>
+            <xs:element name="keymngstate" type="ctC:typeKeyManagement" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If present, it informs about
+                  the current state of keymanagement.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Call_PTTEvent">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Call PTTEvents. Only "DemandTx" and "CeaseTx" actions only.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="tetraCallId" type="xs:unsignedLong"
+              minOccurs="0"/>
+            <xs:element name="action" type="ctC:typePTTEvent"/>
+            <xs:element name="txGrant" type="ctC:typeTxGrant" minOccurs="0"/>
+            <xs:element name="txInterrupt" type="xs:boolean" default="false"
+              minOccurs="0"/>
+            <xs:element name="talkingParty" type="ct:typeAddress"
+              minOccurs="0"/>
+            <xs:element name="attributes" type="ctC:typeCallAttributes"
+              minOccurs="0"/>
+            <xs:element name="txRepeat" type="xs:unsignedLong" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Second timer to repeat the PTT.
+                  Always suggested by the server.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="workstationId" type="ctC:typeWorkstationId"
+              minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Call_UnitInEmergencyEvent">
+    <xs:annotation>
+      <xs:documentation>
+        This event is used to inform DF-Client that a subscriber is in emergency
+        state during an emergency group call indluding the ending of its emergency
+  	    situation. Also queuing of emergency speech item requests is indicated
+        using this event. Event is fired every time the TETRA system informs the
+        Gateway that subscriber’s emergency information is changed. For example,
+        based on this information TCS Client could use pre-emptive speech item to
+        request the current speaker to stop in order to let the unit in emergency
+        to speak.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="ct:typeSubscriberAddress"
+              minOccurs="0"/>
+            <xs:element name="group" type="ct:typeSubscriberAddress"/>
+            <xs:element name="emergencyInfo" type="ctC:typeEmergencyInfo"/>
+            <xs:element name="tstamp" type="xs:dateTime"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

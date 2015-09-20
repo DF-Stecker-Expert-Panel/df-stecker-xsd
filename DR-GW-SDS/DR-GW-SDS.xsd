@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="DR-GW-Interface/DR-GW-SDS"
+           targetNamespace="DR-GW-Interface/DR-GW-SDS"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:ctS="DR-GW-Interface/DR-GW-SDS.CommonTypes"
+           xmlns:ct="DR-GW-Interface/CommonTypes">
+  <xs:annotation>
+    <xs:documentation>DR-GW-SDS interface is designed to support
+      sending of SDS.</xs:documentation>
+  </xs:annotation>
+  <xs:import namespace="DR-GW-Interface/DR-GW-SDS.CommonTypes"
+    schemaLocation="DR-GW-SDS.CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/CommonTypes"
+    schemaLocation="../Types/CommonTypes.xsd"/>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="SDS_Send">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="sds" type="ctS:typeSDS"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="SDS_SendReport">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="target" type="ct:typeAddress"/>
+            <xs:element name="msgRef" type="xs:unsignedByte"/>
+            <xs:element name="deliveryStatus" type="xs:unsignedByte"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
