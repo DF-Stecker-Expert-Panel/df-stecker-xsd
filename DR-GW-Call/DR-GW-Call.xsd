@@ -77,12 +77,13 @@
   </xs:element>
   
 <!-- *********************************************************************** -->
-  <xs:complexType name="Call_KeyExchange">
+  <xs:element name="Call_KeyExchange">
     <xs:annotation>
       <xs:documentation>For triggering the group key exchange. Key exchange
         events are sent in Call_KeyXEvent.
       </xs:documentation>
     </xs:annotation>
+    <xs:complexType>
     <xs:complexContent>
       <xs:extension base="ct:typeRequest">
         <xs:sequence>
@@ -90,8 +91,10 @@
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
-  </xs:complexType>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
+
 
 
 

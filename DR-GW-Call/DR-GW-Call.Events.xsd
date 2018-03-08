@@ -126,13 +126,14 @@ removed as CR-36 replaces it
   </xs:element>
   
 <!-- *********************************************************************** -->
-  <xs:complexType name="Call_KeyExchangeEvent">
+  <xs:element name="Call_KeyExchangeEvent">
     <xs:annotation>
       <xs:documentation>Events regarding key exchange. Contains the complete
         key exchange information from the BOS-Simcard.
       </xs:documentation>
     </xs:annotation>
-    <xs:complexContent>
+    <xs:complexType>
+      <xs:complexContent>
       <xs:extension base="ct:typeEvent">
         <xs:sequence>
 	      <xs:element name="state" type="ctC:typeKeyExchangeState">
@@ -161,9 +162,11 @@ removed as CR-36 replaces it
           </xs:choice>
         </xs:sequence>
       </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
+
 
 
 
