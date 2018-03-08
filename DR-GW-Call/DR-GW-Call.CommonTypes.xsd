@@ -448,7 +448,8 @@
 <!-- *********************************************************************** -->
   <xs:simpleType name="typeUnitInEmergencyType">
     <xs:annotation>
-      <xs:documentation>Defines type of the subscriber.
+      <xs:documentation>Defines type of the subscriber. Refer to type
+        tcsCallSubscriberType_t of the TCS-API.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:normalizedString">
@@ -475,38 +476,3 @@
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

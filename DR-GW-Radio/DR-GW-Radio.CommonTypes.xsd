@@ -28,6 +28,17 @@
   </xs:complexType>
 
 <!-- *********************************************************************** -->
+  <xs:complexType name="typeRadioGroupSelection">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="group" type="ct:typeSubscriberAddress"/>
+      <xs:element name="level" type="typeGroupSelectionLevel"/>
+    </xs:sequence>
+  </xs:complexType>
+
+<!-- *********************************************************************** -->
   <xs:complexType name="typeRadioTrackingData">
     <xs:annotation>
       <xs:documentation/>
@@ -77,7 +88,24 @@
       <xs:element name="opta" type="ct:typeOPTA"/>
      </xs:sequence>
   </xs:complexType>
+  
+<!-- *********************************************************************** -->
+  <xs:simpleType name="typeGroupSelectionLevel">
+    <xs:annotation>
+      <xs:documentation>Covers tcsScanningPriority_t of the TCS-API.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="notScanned"/>
+      <xs:enumeration value="low"/>
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="selected"/>
+      <xs:enumeration value="high"/>
+      <xs:enumeration value="background"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
+
+
 
 
 
