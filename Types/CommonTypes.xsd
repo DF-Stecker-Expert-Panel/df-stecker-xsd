@@ -158,7 +158,18 @@
       <xs:element name="result" type="ct:typeResult" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
+  
+<!-- *********************************************************************** -->
+  <xs:complexType name="typeEmpty">
+    <xs:annotation>
+      <xs:documentation>Explicit type specification for elements that shall be
+        empty.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:complexType>
 </xs:schema>
+
+
 
 
 
