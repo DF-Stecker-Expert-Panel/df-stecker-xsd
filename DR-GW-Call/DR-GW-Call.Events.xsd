@@ -113,7 +113,7 @@ removed as CR-36 replaces it
       <xs:complexContent>
         <xs:extension base="ct:typeEvent">
           <xs:sequence>
-<!--            <xs:element name="group" type="ct:typeSubscriberAddress"/>  -->
+            <xs:element name="group" type="ct:typeSubscriberAddress"/>
             <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
             <xs:element name="unitInEmg" type="ct:typeAddress"/>
             <xs:element name="unitInEmgType" type="ctC:typeUnitInEmergencyType"/>
@@ -166,6 +166,7 @@ removed as CR-36 replaces it
     </xs:complexType>
   </xs:element>
 </xs:schema>
+
 
 
 
