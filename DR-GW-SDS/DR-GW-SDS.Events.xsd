@@ -7,7 +7,7 @@
            xmlns:ctS="DR-GW-Interface/DR-GW-SDS.CommonTypes"
            xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation/>
+    <xs:documentation>Version 1.1.0</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/DR-GW-SDS.CommonTypes"
     schemaLocation="DR-GW-SDS.CommonTypes.xsd"/>
@@ -26,13 +26,15 @@
     <xs:annotation>
       <xs:documentation>An message reference is returned in the response for
         later message identification in case delivery and/or consume requests
-        were asked.</xs:documentation>
+        were asked. Is only valid for SDS-TL.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:complexContent>
         <xs:extension base="ct:typeEvent">
           <xs:sequence>
-            <xs:element name="msgRef" type="xs:unsignedByte" minOccurs="0"/>
+            <xs:element name="msgRef" type="xs:unsignedByte" minOccurs="0"
+              default="0"/>
+            <xs:element name="sds" type="ctS:typeSDS"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
@@ -70,12 +72,17 @@
             <xs:element name="target" type="ct:typeAddress"/>
             <xs:element name="msgRef" type="xs:unsignedByte"/>
             <xs:element name="deliveryStatus" type="xs:unsignedByte"/>
+            <xs:element name="tstamp" type="xs:dateTime"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
 </xs:schema>
+
+
+
+
 
 
 

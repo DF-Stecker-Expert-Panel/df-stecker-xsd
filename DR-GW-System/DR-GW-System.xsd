@@ -5,7 +5,11 @@
            elementFormDefault="qualified"
            attributeFormDefault="unqualified"
            xmlns:ct="DR-GW-Interface/CommonTypes">
+  <xs:annotation>
+    <xs:documentation>Version 1.1.0</xs:documentation>
+  </xs:annotation>
 </xs:schema>
+
 
 
 
