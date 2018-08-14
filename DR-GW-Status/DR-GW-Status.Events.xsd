@@ -7,7 +7,7 @@
            xmlns:ctS="DR-GW-Interface/DR-GW-Status.CommonTypes"
            xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation/>
+    <xs:documentation>Version 1.1.0</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/DR-GW-Status.CommonTypes"
     schemaLocation="DR-GW-Status.CommonTypes.xsd"/>
@@ -22,10 +22,19 @@
   </xs:element>
 
 <!-- *********************************************************************** -->
-  <xs:element name="Status_SendEvent" type="ct:typeEvent">
+  <xs:element name="Status_SendEvent">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="status" type="ctS:typeStatus" minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   </xs:element>
   
 <!-- *********************************************************************** -->
@@ -44,6 +53,8 @@
     </xs:complexType>
   </xs:element>
 </xs:schema>
+
+
 
 
 

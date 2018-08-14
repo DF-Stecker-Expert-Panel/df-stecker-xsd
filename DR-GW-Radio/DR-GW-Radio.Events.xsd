@@ -7,7 +7,7 @@
            xmlns:ctR="DR-GW-Interface/DR-GW-Radio.CommonTypes"
            xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation/>
+    <xs:documentation>Version 1.1.0</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/CommonTypes"
     schemaLocation="../Types/CommonTypes.xsd"/>
@@ -64,8 +64,9 @@
       <xs:complexContent>
         <xs:extension base="ct:typeEvent">
           <xs:sequence>
-            <xs:element name="group" type="ct:typeSubscriberAddress" minOccurs="0"
-              maxOccurs="unbounded"/>
+            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
+            <xs:element name="group" type="ctR:typeRadioGroupSelection"
+              minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="listEnd" type="xs:boolean"/>
           </xs:sequence>
         </xs:extension>
@@ -73,6 +74,27 @@
     </xs:complexType>
   </xs:element>
   
+<!-- *********************************************************************** -->
+  <xs:element name="Radio_GroupsEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
+            <xs:choice>
+              <xs:element name="group" type="ctR:typeRadioGroupSelection"
+                maxOccurs="unbounded"/>
+              <xs:element name="deletedGroup" type="ct:typeSubscriberAddress"/>
+            </xs:choice>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
 <!-- *********************************************************************** -->
   <xs:element name="Radio_Event">
     <xs:annotation>
@@ -159,6 +181,12 @@
     </xs:complexType>
   </xs:element>
 </xs:schema>
+
+
+
+
+
+
 
 
 

@@ -7,18 +7,11 @@
            xmlns:ct="DR-GW-Interface/CommonTypes"
            xmlns:ctC="DR-GW-Interface/DR-GW-Call.CommonTypes">
   <xs:annotation>
-    <xs:documentation/>
+    <xs:documentation>Version 1.1.0</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
   <xs:import namespace="DR-GW-Interface/DR-GW-Call.CommonTypes" schemaLocation="DR-GW-Call.CommonTypes.xsd"/>
   
-<!-- *********************************************************************** -->
-  <xs:element name="Call_Response" type="ct:typeResponse">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-  </xs:element>
-
 <!-- *********************************************************************** -->
   <xs:element name="Call_SelectEvent">
     <xs:annotation>
@@ -52,12 +45,17 @@
             <xs:element name="callingParty" type="ct:typeAddress"
               minOccurs="0"/>
             <xs:element name="calledParty" type="ct:typeAddress" minOccurs="0"/>
+<!--
+removed as CR-36 replaces it
             <xs:element name="keymngstate" type="ctC:typeKeyManagement" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>If present, it informs about
                   the current state of keymanagement.</xs:documentation>
               </xs:annotation>
             </xs:element>
+ -->
+            <xs:element name="disconnectCause" type="ctC:typeDisconnectCause"
+              minOccurs="0"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
@@ -67,30 +65,30 @@
 <!-- *********************************************************************** -->
   <xs:element name="Call_PTTEvent">
     <xs:annotation>
-      <xs:documentation>DR-GW-Call PTTEvents. Only "DemandTx" and "CeaseTx" actions only.</xs:documentation>
+      <xs:documentation>DR-GW-Call PTTEvents.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:complexContent>
         <xs:extension base="ct:typeEvent">
           <xs:sequence>
-            <xs:element name="tetraCallId" type="xs:unsignedLong"
-              minOccurs="0"/>
-            <xs:element name="action" type="ctC:typePTTEvent"/>
-            <xs:element name="txGrant" type="ctC:typeTxGrant" minOccurs="0"/>
-            <xs:element name="txInterrupt" type="xs:boolean" default="false"
-              minOccurs="0"/>
-            <xs:element name="talkingParty" type="ct:typeAddress"
-              minOccurs="0"/>
-            <xs:element name="attributes" type="ctC:typeCallAttributes"
-              minOccurs="0"/>
-            <xs:element name="txRepeat" type="xs:unsignedLong" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Second timer to repeat the PTT.
-                  Always suggested by the server.</xs:documentation>
+          <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:choice>
+            <xs:element name="granted" type="ctC:typeTxGranted"/>
+            <xs:element name="ceased" type="ct:typeEmpty">
+	          <xs:annotation>
+	            <xs:documentation>This event is used to inform that transmission is
+                  ceased and nobody has the speech item.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="workstationId" type="ctC:typeWorkstationId"
-              minOccurs="0"/>
+            <xs:element name="wait" type="ct:typeEmpty">
+	          <xs:annotation>
+	            <xs:documentation>This event is used to inform that the call is
+                  temporarily paused e.g. if radio subscriber has roamed to a
+                  new cell and there are no free resources available.
+                </xs:documentation>
+	          </xs:annotation>
+            </xs:element>
+          </xs:choice>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
@@ -102,7 +100,7 @@
     <xs:annotation>
       <xs:documentation>
         This event is used to inform DF-Client that a subscriber is in emergency
-        state during an emergency group call indluding the ending of its emergency
+        state during an emergency group call including the ending of its emergency
   	    situation. Also queuing of emergency speech item requests is indicated
         using this event. Event is fired every time the TETRA system informs the
         Gateway that subscriber’s emergency information is changed. For example,
@@ -115,17 +113,65 @@
       <xs:complexContent>
         <xs:extension base="ct:typeEvent">
           <xs:sequence>
-            <xs:element name="radio" type="ct:typeSubscriberAddress"
-              minOccurs="0"/>
             <xs:element name="group" type="ct:typeSubscriberAddress"/>
-            <xs:element name="emergencyInfo" type="ctC:typeEmergencyInfo"/>
+            <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
+            <xs:element name="unitInEmg" type="ct:typeAddress"/>
+            <xs:element name="unitInEmgType" type="ctC:typeUnitInEmergencyType"/>
+            <xs:element name="emgInfo" type="ctC:typeEmergencyInfo"/>
             <xs:element name="tstamp" type="xs:dateTime"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+  
+<!-- *********************************************************************** -->
+  <xs:element name="Call_KeyExchangeEvent">
+    <xs:annotation>
+      <xs:documentation>Events regarding key exchange. Contains the complete
+        key exchange information from the BOS-Simcard.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+      <xs:extension base="ct:typeEvent">
+        <xs:sequence>
+	      <xs:element name="state" type="ctC:typeKeyExchangeState">
+	        <xs:annotation>
+              <xs:documentation>Represents the current key exchange state.
+              </xs:documentation>
+	        </xs:annotation>
+	      </xs:element>
+          <xs:element name="code" type="ctC:typeKeyExchangeCode"/>
+          <xs:choice>
+            <xs:sequence>
+              <xs:element name="priority" type="ctC:typeKeyExchangeTextPriority"
+                minOccurs="0" default="normal"/>
+              <xs:element name="interaction" type="xs:boolean" minOccurs="0"
+                default="false">
+                <xs:annotation>
+                  <xs:documentation>If user interaction is required, then the
+                    message box should be visible until the interaction is made,
+                    otherwise should be hidden after delay.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="text" type="ctC:typeKeyExchangeText"/>
+            </xs:sequence>
+            <xs:element name="tone" type="xs:boolean" fixed="true"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
+
+
+
+
+
+
 
 
 

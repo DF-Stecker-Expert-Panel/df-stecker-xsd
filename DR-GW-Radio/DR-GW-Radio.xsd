@@ -9,7 +9,7 @@
            xmlns:ctR="DR-GW-Interface/DR-GW-Radio.CommonTypes"
            xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation/>
+    <xs:documentation>Version 1.1.0</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes" schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.CommonTypes.xsd"/>
   <xs:import namespace="DR-GW-Interface/DR-GW-Group.CommonTypes" schemaLocation="../DR-GW-Group/DR-GW-Group.CommonTypes.xsd"/>
@@ -105,6 +105,9 @@
       <xs:documentation>This method is used to Enable the radio terminal over
         the air or to Disable the radio terminal over the air. If no reason is
         supplied, then the DF-Gateway sets the default reason.
+        There is no default reason value, it depends on the DF-Gateway
+        configuration what reason is used when no reason is supplied by
+        DF-Client.
         See TCS API Description for all possible reasons for disabling.
       </xs:documentation>
     </xs:annotation>
@@ -121,6 +124,8 @@
     </xs:complexType>
   </xs:element>
 </xs:schema>
+
+
 
 
 

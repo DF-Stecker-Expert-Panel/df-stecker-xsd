@@ -6,7 +6,7 @@
            attributeFormDefault="unqualified"
            xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation/>
+    <xs:documentation>Version 1.1.0</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/CommonTypes"
     schemaLocation="../Types/CommonTypes.xsd"/>
@@ -90,6 +90,7 @@
     <xs:sequence>
       <xs:element name="data" type="xs:string" minOccurs="0"/>
       <xs:element name="hexdata" type="xs:hexBinary" minOccurs="0"/>
+      <xs:element name="hexdatalength" type="xs:integer" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -114,6 +115,8 @@
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
+
+
 
 
 

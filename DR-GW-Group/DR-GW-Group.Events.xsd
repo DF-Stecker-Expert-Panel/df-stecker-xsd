@@ -7,7 +7,7 @@
            xmlns:ctG="DR-GW-Interface/DR-GW-Group.CommonTypes"
            xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation/>
+    <xs:documentation>Version 1.1.0</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/DR-GW-Group.CommonTypes"
     schemaLocation="DR-GW-Group.CommonTypes.xsd"/>
@@ -194,8 +194,7 @@
       <xs:complexContent>
         <xs:extension base="ct:typeEvent">
           <xs:sequence>
-            <xs:element name="group" type="ctG:typeGroupSubscribeDataEvent"
-              maxOccurs="unbounded"/>
+            <xs:element name="group" type="ctG:typeGroupSubscribeDataEvent"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
@@ -288,6 +287,8 @@
     </xs:complexType>
   </xs:element>
 </xs:schema>
+
+
 
 
 
