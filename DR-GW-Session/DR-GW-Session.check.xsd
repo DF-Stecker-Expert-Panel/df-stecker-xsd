@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *********************************************************************** -->
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:element name="check" type="typeSessionCheck"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeSessionCheck">
+    <xs:annotation>
+      <xs:documentation>To enable the DF-Client to check connectivity to DR-GW
+        the client may use Session_Check. The check requires the http
+        authentication as it would be needed for a Session_Login. Also version
+        check could be performed. So if once the Session_Check is OK, the client
+        should be able to login later on. There is no resource allocation
+        associated with the session check.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="clientid" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+</xs:schema>
+
+
+
+
+
+
+
+
+

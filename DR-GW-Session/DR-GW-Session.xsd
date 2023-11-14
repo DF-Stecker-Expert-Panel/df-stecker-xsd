@@ -1,88 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-Session"
-           targetNamespace="DR-GW-Interface/DR-GW-Session"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:ctS="DR-GW-Interface/DR-GW-Session.CommonTypes"
-           xmlns:ct="DR-GW-Interface/CommonTypes">
-  <xs:annotation>
-    <xs:documentation>Version 1.1.0</xs:documentation>
-  </xs:annotation>
-  <xs:import namespace="DR-GW-Interface/DR-GW-Session.CommonTypes"
-    schemaLocation="DR-GW-Session.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/CommonTypes"
-    schemaLocation="../Types/CommonTypes.xsd"/>
-  
-<!-- *********************************************************************** -->
-  <xs:element name="Session_Login">
-    <xs:annotation>
-      <xs:documentation>Login procedure. The username, password and the complete
-      authentication is done using mechanisms of the transport protocol.
-      Digest access authentication on HTTP or SIP digest authentication on SIP.
-      Both are principialy same.</xs:documentation>
-    </xs:annotation>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *********************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Session.check.xsd"/>
+  <xs:include schemaLocation="DR-GW-Session.login.xsd"/>
+  <xs:include schemaLocation="DR-GW-Session.supervise.xsd"/>
+  <xs:include schemaLocation="DR-GW-Session.logout.xsd"/>
+  <xs:include schemaLocation="DR-GW-Session.response.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:element name="session">
     <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="clientid" type="xs:string"/>
-            <xs:element name="supervise" default="60" minOccurs="0"
-              type="ctS:typeSuperviseTimeout"/>
-            <xs:element name="version" type="xs:string" minOccurs="0"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Session_Logout">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Session_Supervise">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-  
-<!-- *********************************************************************** -->
-  <xs:element name="Session_Check">
-    <xs:annotation>
-      <xs:documentation>To enable the DF-Client to check connectivity to DR-GW
-        the client may use Session_Check. The check requires the http
-        authentication as it would be needed for a Session_Login. Also version
-        check could be performed. So if once the Session_Check is OK, the client
-        should be able to login later on. There is no resource allocation
-        associated with the session check</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="clientid" type="xs:string"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
+      <xs:choice>
+        <xs:element ref="login"/>
+        <xs:element ref="logout"/>
+        <xs:element ref="supervise"/>
+        <xs:element ref="check"/>
+        <!-- *************************************************************** -->
+        <xs:element ref="response"/>
+        <xs:element ref="loginEvent"/>
+        <xs:element ref="superviseEvent"/>
+      </xs:choice>
     </xs:complexType>
   </xs:element>
 </xs:schema>
+
+
 
 
 

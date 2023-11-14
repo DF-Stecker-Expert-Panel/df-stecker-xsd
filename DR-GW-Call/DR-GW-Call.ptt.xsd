@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *********************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Call.Types.xsd"/>
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:element name="pttRequest" type="typeCallPTTRequest"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeCallPTTRequest">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Call PTTRequest. Only "DemandTx" and "CeaseTx" actions only.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="action" type="typeActionPTTRequest"/>
+          <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
+          <xs:element name="talkingParty" type="typeAddress" minOccurs="0"/>
+          <xs:element name="workstationId" type="typeWorkstationId" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:element name="pttEvent" type="typeCallPTTEvent"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeCallPTTEvent">
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:choice>
+            <xs:element name="granted" type="typeTxGranted"/>
+            <xs:element name="ceased" type="typeEmpty">
+              <xs:annotation>
+                <xs:documentation>This event is used to inform that transmission is
+                  ceased and nobody has the speech item.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="wait" type="typeEmpty">
+              <xs:annotation>
+                <xs:documentation>This event is used to inform that the call is
+                  temporarily paused e.g. if radio subscriber has roamed to a
+                  new cell and there are no free resources available.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeActionPTTRequest">
+    <xs:annotation>
+      <xs:documentation>All possible PTT requests.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="demandtx">
+        <xs:annotation>
+          <xs:documentation>This method can be used to request a speech item
+            for a connected call.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ceasetx">
+        <xs:annotation>
+          <xs:documentation>This method is used to inform the system that the
+            speech item is not needed any more.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeTxGranted">
+    <xs:annotation>
+      <xs:documentation>This event is used to inform of granted transmission
+        request. This event is called when the transmission is granted to
+        client, to another user or the request has been queued.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="txGrant" type="typeTxGrant"/>
+      <xs:element name="talkingParty" type="typeAddress" minOccurs="0"/>
+      <xs:element name="encryption" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="txPriority" type="typeTxPriority" minOccurs="0" default="normal"/>
+      <xs:element name="txInterrupt" type="xs:boolean" default="false" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Defines whether previous speaker’s speech item
+            was interrupted by this speech item. Valid only when txGrant
+            is granted2another.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="txRepeat" type="xs:unsignedLong" minOccurs="0" default="0">
+        <xs:annotation>
+          <xs:documentation>Timer to repeat the PTT. Units are seconds.
+            Always suggested by the DF-gateway. Only valid when txGrant=granted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="workstationId" type="xs:normalizedString" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Id of the currently speaking workstation, used for
+            "neighbours" feature. Only valid when txGrant=granted and when
+            supplied by the DF-client in PTT request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeTxGrant">
+    <xs:annotation>
+      <xs:documentation>Defines to whom speech item was granted.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="granted"/>
+      <xs:enumeration value="notGranted"/>
+      <xs:enumeration value="queued"/>
+      <xs:enumeration value="granted2another"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeTxPriority">
+    <xs:annotation>
+      <xs:documentation>Defines the priority of the transmission.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="emergency"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

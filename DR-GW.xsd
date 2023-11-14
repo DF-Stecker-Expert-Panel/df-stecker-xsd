@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *********************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Call/DR-GW-Call.xsd"/>
+  <xs:include schemaLocation="DR-GW-Session/DR-GW-Session.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:element name="dr-gw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="call"/>
+        <xs:element ref="session"/>
+      </xs:choice>
+      <xs:attribute name="version" fixed="1.2" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+

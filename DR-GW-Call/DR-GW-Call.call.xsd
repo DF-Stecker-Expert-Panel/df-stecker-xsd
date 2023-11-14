@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *********************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Call.types.xsd"/>
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:element name="request" type="typeCallRequest"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeCallRequest">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Call request. All call related operations
+        are accomplished using this service.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="action" type="typeActionRequest"/>
+          <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
+          <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
+          <xs:element name="calledParty" type="typeAddress" minOccurs="0"/>
+          <xs:element name="workstationId" type="typeWorkstationId" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:element name="event" type="typeCallEvent"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeCallEvent">
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="action" type="typeActionEvent"/>
+          <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
+          <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
+          <xs:element name="calledParty" type="typeAddress" minOccurs="0"/>
+          <xs:element name="disconnectCause" type="typeDisconnectCause" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeActionRequest">
+    <xs:annotation>
+      <xs:documentation>All possible call actions.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="setup">
+        <xs:annotation>
+          <xs:documentation>This method is used to initiate a new call setup.
+            For a call setup to be successful it is required that the resources
+            have been reserved prior this method call.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="connect">
+        <xs:annotation>
+          <xs:documentation>This method is used to connect
+            an incoming call.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="hold">
+        <xs:annotation>
+          <xs:documentation>This method requests to put
+            an individual call to hold.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="unhold">
+        <xs:annotation>
+          <xs:documentation>This method is a request for resuming
+            an individual call from hold.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="disconnect">
+        <xs:annotation>
+          <xs:documentation>This method is used to disconnect
+            a call.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="transfer">
+        <xs:annotation>
+          <xs:documentation>This method is used to transfer
+            an individual call to a new recipient.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="releasecall">
+        <xs:annotation>
+          <xs:documentation>This method is used to release radio subscriber’s
+            individual call.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeActionEvent">
+    <xs:annotation>
+      <xs:documentation>All possible call actions.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="incoming">
+        <xs:annotation>
+          <xs:documentation>This event fired when there is an incoming call.
+            This is the first indication of a new incoming call.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="connected">
+        <xs:annotation>
+          <xs:documentation>This event is used to inform that call
+            has been connected and call setup is finished.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="held">
+        <xs:annotation>
+          <xs:documentation>This event is used to inform TCS Client that
+            individual call was put to hold.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="resumed">
+        <xs:annotation>
+          <xs:documentation>This event is used to inform that individual call
+            has been taken from hold.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="disconnected">
+        <xs:annotation>
+          <xs:documentation>This event is used to inform that the call
+            was disconnected.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="transferred">
+        <xs:annotation>
+          <xs:documentation>This event is a response to transfer method call
+            and indicates the result of the request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeDisconnectCause">
+    <xs:sequence>
+      <xs:element name="protocol">
+        <xs:simpleType>
+          <xs:restriction base="xs:normalizedString">
+            <xs:enumeration value="DR-GW"/>
+            <xs:enumeration value="TCS-API"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="code" type="xs:unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Value according to DR-GW-Reason header in
+            DR-GW-Interface specification. It should only be present if action
+            is "disconnected" and holds the reason for call disconnection.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="text" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Optional textual representation of the cause.
+       </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="80"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *********************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Call.Types.xsd"/>
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:element name="unitInEmergencyEvent" type="typeCallUnitInEmergencyEvent"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeCallUnitInEmergencyEvent">
+    <xs:annotation>
+      <xs:documentation>
+        This event is used to inform DF-Client that a subscriber is in emergency
+        state during an emergency group call including the ending of its emergency
+        situation. Also queuing of emergency speech item requests is indicated
+        using this event. Event is fired every time the TETRA system informs the
+        Gateway that subscriber’s emergency information is changed. For example,
+        based on this information TCS Client could use pre-emptive speech item to
+        request the current speaker to stop in order to let the unit in emergency
+        to speak.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+          <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="unitInEmg" type="typeAddress"/>
+          <xs:element name="unitInEmgType" type="typeUnitInEmergencyType"/>
+          <xs:element name="emgInfo" type="typeEmergencyInfo"/>
+          <xs:element name="tstamp" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeUnitInEmergencyType">
+    <xs:annotation>
+      <xs:documentation>Defines type of the subscriber. Refer to type
+        tcsCallSubscriberType_t of the TCS-API.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="dummy"/>
+      <xs:enumeration value="ms"/>
+      <xs:enumeration value="g4wif"/>
+      <xs:enumeration value="external"/>
+      <xs:enumeration value="ws"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeEmergencyInfo">
+    <xs:annotation>
+      <xs:documentation>Defines action taken by user in emergency.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="addTx"/>
+      <xs:enumeration value="add"/>
+      <xs:enumeration value="ceased"/>
+      <xs:enumeration value="demandTx"/>
+      <xs:enumeration value="removed"/>
+      <xs:enumeration value="emergencyCallDisconnected"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

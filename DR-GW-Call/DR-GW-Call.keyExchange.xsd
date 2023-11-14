@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *********************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Call.Types.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:element name="keyExchange" type="typeCallKeyExchange"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeCallKeyExchange">
+    <xs:annotation>
+      <xs:documentation>For triggering the group key exchange. Key exchange events are sent in Call_KeyXEvent.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="action" type="typeKeyExchangeAction"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:element name="keyExchangeEvent" type="typeCallKeyExchangeEvent"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeCallKeyExchangeEvent">
+    <xs:annotation>
+      <xs:documentation>Events regarding key exchange. Contains the complete
+        key exchange information from the BOS-Simcard.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="state" type="typeKeyExchangeState">
+            <xs:annotation>
+              <xs:documentation>Represents the current key exchange state.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="code" type="typeKeyExchangeCode"/>
+          <xs:choice>
+            <xs:sequence>
+              <xs:element name="priority" type="typeKeyExchangeTextPriority" minOccurs="0" default="normal"/>
+              <xs:element name="interaction" type="xs:boolean" minOccurs="0" default="false">
+                <xs:annotation>
+                  <xs:documentation>If user interaction is required, then the
+                    message box should be visible until the interaction is made,
+                    otherwise should be hidden after delay.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="text" type="typeKeyExchangeText"/>
+            </xs:sequence>
+            <xs:element name="tone" type="xs:boolean" fixed="true"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeKeyExchangeAction">
+    <xs:annotation>
+      <xs:documentation> Action type for key exchange request.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="stop"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeKeyExchangeState">
+    <xs:annotation>
+      <xs:documentation>Represents current key state.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="keyValid">
+        <xs:annotation>
+          <xs:documentation> current key is valid, no user action required.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="keyInvalid">
+        <xs:annotation>
+          <xs:documentation>Key invalid, user must request key exchange.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="keyExchangeInProgress">
+        <xs:annotation>
+          <xs:documentation>Key exchange in progress, user may abort exchange or
+            wait until it gets finished.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeKeyExchangeCode">
+    <xs:annotation>
+      <xs:documentation>See "Table 5.3: Status words of the commands" of
+        the E-to-E Encryption SIM-ME Interface (Version 4.0.5) for all possible
+        code values.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:hexBinary">
+      <xs:length value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeKeyExchangeText">
+    <xs:annotation>
+      <xs:documentation>The textual information supplied by the BOS-simcard and
+        sent from the DF-Gateway to the DF-client.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeKeyExchangeTextPriority">
+    <xs:annotation>
+      <xs:documentation>Defines the priority of the KeyExchange information.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="high"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeKeyManagementTextPriority">
+    <xs:annotation>
+      <xs:documentation>Defines the priority of the keymanagement information.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="high"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

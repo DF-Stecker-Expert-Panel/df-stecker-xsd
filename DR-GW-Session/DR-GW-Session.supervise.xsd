@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *********************************************************************** -->
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:element name="supervise" type="typeSessionSupervise"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeSessionSupervise">
+    <xs:complexContent>
+      <xs:extension base="typeRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:element name="superviseEvent" type="typeSessionSuperviseEvent"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeSessionSuperviseEvent">
+    <xs:complexContent>
+      <xs:extension base="typeEvent"/>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+
+
+
+
+
+
+
+
+

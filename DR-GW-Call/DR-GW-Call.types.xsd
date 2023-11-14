@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *********************************************************************** -->
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeWorkstationId">
+    <xs:annotation>
+      <xs:documentation>Optional parameter is used to support the "neighbours" feature.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString"/>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeCallAttributes">
+    <xs:annotation>
+      <xs:documentation>Contains all attributes of the TETRA voice call.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="hook" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="mode" type="typeCallMode" minOccurs="0"/>
+      <xs:element name="commtype" type="typeCallType" minOccurs="0"/>
+      <xs:element name="priority" type="xs:unsignedByte" default="1" minOccurs="0"/>
+      <xs:element name="encryption" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="ambienceListen" type="xs:boolean" default="0" minOccurs="0"/>
+      <xs:element name="req2speak" type="xs:boolean" default="1" minOccurs="0"/>
+      <xs:element name="demandPriority" type="typeTxDemandPriority" default="normal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeCallMode">
+    <xs:annotation>
+      <xs:documentation>Call mode attribute. Choices are simplex or duplex.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="simplex"/>
+      <xs:enumeration value="duplex"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeCallType">
+    <xs:annotation>
+      <xs:documentation>Call type attribute. Choices are Point2Point,
+        Point2MultiPoint or Broadcast.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="p2p"/>
+      <xs:enumeration value="p2mp"/>
+      <xs:enumeration value="bcast"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeTxDemandPriority">
+    <xs:annotation>
+      <xs:documentation>Defines priority of speech item request: normal, pre-emptive, or emergency.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="preemptive"/>
+      <xs:enumeration value="emergency"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
