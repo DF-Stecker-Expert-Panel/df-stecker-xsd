@@ -14,7 +14,7 @@
         <xs:element ref="logout"/>
         <xs:element ref="supervise"/>
         <xs:element ref="check"/>
-        <!-- *************************************************************** -->
+        <!-- ************************************** -->
         <xs:element ref="response"/>
         <xs:element ref="loginEvent"/>
         <xs:element ref="superviseEvent"/>
@@ -22,6 +22,7 @@
     </xs:complexType>
   </xs:element>
 </xs:schema>
+
 
 
 

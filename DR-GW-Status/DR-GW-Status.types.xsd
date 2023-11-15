@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeStatus">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="value" type="xs:unsignedShort"/>
+        <xs:element name="hexValue" type="xs:hexBinary"/>
+      </xs:choice>
+      <xs:element name="source" type="typeAddress" minOccurs="0"/>
+      <xs:element name="target" type="typeAddress"/>
+      <xs:element name="tstamp" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

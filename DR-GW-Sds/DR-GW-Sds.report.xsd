@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:element name="sendReport" type="typeSdsSendReport"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeSdsSendReport">
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="target" type="typeAddress"/>
+          <xs:element name="msgRef" type="xs:unsignedByte"/>
+          <xs:element name="deliveryStatus" type="xs:unsignedByte"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
+  <xs:element name="reportEvent" type="typeSdsReportEvent"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeSdsReportEvent">
+    <xs:annotation>
+      <xs:documentation>ReportEvent is fired whenever the delivery or
+        consume report is received.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="source" type="typeAddress"/>
+          <xs:element name="target" type="typeAddress"/>
+          <xs:element name="msgRef" type="xs:unsignedByte"/>
+          <xs:element name="deliveryStatus" type="xs:unsignedByte"/>
+          <xs:element name="tstamp" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
