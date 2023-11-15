@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:element name="logout" type="typeSessionLogout"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:complexType name="typeSessionLogout">
     <xs:complexContent>
       <xs:extension base="typeRequest"/>
     </xs:complexContent>
   </xs:complexType>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:element name="logoutEvent" type="typeSessionLogoutEvent"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:complexType name="typeSessionLogoutEvent">
     <xs:complexContent>
       <xs:extension base="typeEvent">
@@ -23,8 +23,3 @@
     </xs:complexContent>
   </xs:complexType>
 </xs:schema>
-
-
-
-
-

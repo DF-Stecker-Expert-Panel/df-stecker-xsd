@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Call.Types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:element name="unitInEmergencyEvent" type="typeCallUnitInEmergencyEvent"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:complexType name="typeCallUnitInEmergencyEvent">
     <xs:annotation>
       <xs:documentation>
@@ -32,35 +32,4 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <!-- *********************************************************************** -->
-  <xs:simpleType name="typeUnitInEmergencyType">
-    <xs:annotation>
-      <xs:documentation>Defines type of the subscriber. Refer to type
-        tcsCallSubscriberType_t of the TCS-API.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:normalizedString">
-      <xs:enumeration value="dummy"/>
-      <xs:enumeration value="ms"/>
-      <xs:enumeration value="g4wif"/>
-      <xs:enumeration value="external"/>
-      <xs:enumeration value="ws"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <!-- *********************************************************************** -->
-  <xs:simpleType name="typeEmergencyInfo">
-    <xs:annotation>
-      <xs:documentation>Defines action taken by user in emergency.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:normalizedString">
-      <xs:enumeration value="addTx"/>
-      <xs:enumeration value="add"/>
-      <xs:enumeration value="ceased"/>
-      <xs:enumeration value="demandTx"/>
-      <xs:enumeration value="removed"/>
-      <xs:enumeration value="emergencyCallDisconnected"/>
-    </xs:restriction>
-  </xs:simpleType>
 </xs:schema>
-

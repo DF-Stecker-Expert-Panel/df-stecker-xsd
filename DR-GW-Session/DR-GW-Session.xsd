@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Session.check.xsd"/>
   <xs:include schemaLocation="DR-GW-Session.login.xsd"/>
   <xs:include schemaLocation="DR-GW-Session.supervise.xsd"/>
   <xs:include schemaLocation="DR-GW-Session.logout.xsd"/>
-  <xs:include schemaLocation="DR-GW-Session.response.xsd"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:element name="session">
     <xs:complexType>
       <xs:choice>
@@ -14,14 +13,14 @@
         <xs:element ref="logout"/>
         <xs:element ref="supervise"/>
         <xs:element ref="check"/>
-        <!-- ************************************** -->
-        <xs:element ref="response"/>
+        <xs:element name="response" type="typeResponse"/>
         <xs:element ref="loginEvent"/>
         <xs:element ref="superviseEvent"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>
 </xs:schema>
+
 
 
 

@@ -1,40 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
-  <xs:include schemaLocation="DR-GW-Status.types.xsd"/>
+  <xs:include schemaLocation="DR-GW-OrganisationBlock.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="send" type="typeStatusSend"/>
+  <xs:element name="get" type="typeOrgGet"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeStatusSend">
+  <xs:complexType name="typeOrgGet">
     <xs:complexContent>
       <xs:extension base="typeRequest">
         <xs:sequence>
-          <xs:element name="status" type="typeStatus"/>
+          <xs:element name="orgblockId" type="typeOrganisationBlockId"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="sendEvent" type="typeStatusSendEvent"/>
+  <xs:element name="getEvent" type="typeOrgGetEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeStatusSendEvent">
+  <xs:complexType name="typeOrgGetEvent">
     <xs:complexContent>
       <xs:extension base="typeEvent">
         <xs:sequence>
-          <xs:element name="status" type="typeStatus" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <!-- *************************************************************** -->
-  <xs:element name="receiveEvent" type="typeStatusReceiveEvent"/>
-  <!-- *************************************************************** -->
-  <xs:complexType name="typeStatusReceiveEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="status" type="typeStatus"/>
+          <xs:element name="orgblock" type="typeOrganisationBlock"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

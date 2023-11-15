@@ -1,66 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-OrganisationBlock"
-           targetNamespace="DR-GW-Interface/DR-GW-OrganisationBlock"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
-           xmlns:ct="DR-GW-Interface/CommonTypes">
-  <xs:annotation>
-    <xs:documentation>Version 1.1.0</xs:documentation>
-  </xs:annotation>
-  <xs:import namespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
-    schemaLocation="DR-GW-OrganisationBlock.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/CommonTypes"
-    schemaLocation="../Types/CommonTypes.xsd"/>
-  
-<!-- *********************************************************************** -->
-  <xs:element name="Org_Get">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="DR-GW-OrganisationBlock.get.xsd"/>
+  <xs:include schemaLocation="DR-GW-OrganisationBlock.getList.xsd"/>
+  <xs:include schemaLocation="DR-GW-OrganisationBlock.response.xsd"/>
+  <xs:include schemaLocation="DR-GW-OrganisationBlock.event.xsd"/>
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:element name="org">
     <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Org_GetList">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId"
-              minOccurs="0"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
+      <xs:choice>
+        <xs:element ref="get"/>
+        <xs:element ref="getList"/>
+        <!-- *********************************-->
+        <xs:element ref="response"/>
+        <xs:element ref="getEvent"/>
+        <xs:element ref="getListEvent"/>
+        <xs:element ref="event"/>
+      </xs:choice>
     </xs:complexType>
   </xs:element>
 </xs:schema>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

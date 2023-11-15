@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Call.Types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:element name="select" type="typeCallSelect"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:complexType name="typeCallSelect">
     <xs:annotation>
       <xs:documentation>The method reserves speech line for the targets of
@@ -20,9 +20,9 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:element name="selectEvent" type="typeCallSelectEvent"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:complexType name="typeCallSelectEvent">
     <xs:complexContent>
       <xs:extension base="typeEvent">
@@ -32,49 +32,4 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <!-- *********************************************************************** -->
-  <xs:simpleType name="typeSelectionLevel">
-    <xs:annotation>
-      <xs:documentation>Defines how the target is monitored.</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:normalizedString">
-      <xs:enumeration value="no">
-        <xs:annotation>
-          <xs:documentation>No selection. Used to remove selection.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="event">
-        <xs:annotation>
-          <xs:documentation>Event monitoring.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="audio">
-        <xs:annotation>
-          <xs:documentation>Audio monitoring.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="use">
-        <xs:annotation>
-          <xs:documentation>Selection level use.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="a_use">
-        <xs:annotation>
-          <xs:documentation>Selection level active use.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <!-- *********************************************************************** -->
-  <xs:complexType name="typeSelection">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="level" type="typeSelectionLevel"/>
-      <xs:element name="target" type="typeAddress"/>
-    </xs:sequence>
-  </xs:complexType>
 </xs:schema>
-

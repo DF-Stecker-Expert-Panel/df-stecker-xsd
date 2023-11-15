@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:element name="check" type="typeSessionCheck"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:complexType name="typeSessionCheck">
     <xs:annotation>
       <xs:documentation>To enable the DF-Client to check connectivity to DR-GW
@@ -23,14 +23,4 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <!-- *********************************************************************** -->
 </xs:schema>
-
-
-
-
-
-
-
-
-

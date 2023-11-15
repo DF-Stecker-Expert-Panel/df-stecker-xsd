@@ -5,6 +5,7 @@
   <xs:include schemaLocation="DR-GW-Session/DR-GW-Session.xsd"/>
   <xs:include schemaLocation="DR-GW-Sds/DR-GW-Sds.xsd"/>
   <xs:include schemaLocation="DR-GW-Status/DR-GW-Status.xsd"/>
+  <xs:include schemaLocation="DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.xsd"/>
   <!-- *************************************************************** -->
   <xs:element name="dr-gw">
     <xs:complexType>
@@ -13,6 +14,7 @@
         <xs:element ref="session"/>
         <xs:element ref="sds"/>
         <xs:element ref="status"/>
+        <xs:element ref="org"/>
       </xs:choice>
       <xs:attribute name="version" fixed="1.2" use="required"/>
     </xs:complexType>

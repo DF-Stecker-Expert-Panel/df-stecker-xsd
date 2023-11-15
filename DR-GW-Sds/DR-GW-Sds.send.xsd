@@ -34,6 +34,20 @@
     </xs:complexContent>
   </xs:complexType>
   <!-- *************************************************************** -->
+  <xs:element name="sendReport" type="typeSdsSendReport"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeSdsSendReport">
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="target" type="typeAddress"/>
+          <xs:element name="msgRef" type="xs:unsignedByte"/>
+          <xs:element name="deliveryStatus" type="xs:unsignedByte"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
   <xs:element name="receiveEvent" type="typeSdsReceiveEvent"/>
   <!-- *************************************************************** -->
   <xs:complexType name="typeSdsReceiveEvent">

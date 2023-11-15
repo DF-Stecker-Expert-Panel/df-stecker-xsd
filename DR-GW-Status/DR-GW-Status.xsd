@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
-  <xs:include schemaLocation="DR-GW-Status.status.xsd"/>
-  <xs:include schemaLocation="DR-GW-Status.response.xsd"/>
+  <xs:include schemaLocation="DR-GW-Status.send.xsd"/>
+  <xs:include schemaLocation="DR-GW-Status.receive.xsd"/>
   <!-- *************************************************************** -->
   <xs:element name="status">
     <xs:complexType>
       <xs:choice>
         <xs:element ref="send"/>
-        <!-- *********************************-->
-        <xs:element ref="response"/>
+        <xs:element name="response" type="typeResponse"/>
         <xs:element ref="sendEvent"/>
         <xs:element ref="receiveEvent"/>
       </xs:choice>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Call.select.xsd"/>
   <xs:include schemaLocation="DR-GW-Call.call.xsd"/>
   <xs:include schemaLocation="DR-GW-Call.ptt.xsd"/>
   <xs:include schemaLocation="DR-GW-Call.keyExchange.xsd"/>
   <xs:include schemaLocation="DR-GW-Call.unitInEmergency.xsd"/>
-  <xs:include schemaLocation="DR-GW-Call.response.xsd"/>
-  <!-- *********************************************************************** -->
+  <!-- *************************************************************** -->
   <xs:element name="call">
     <xs:complexType>
       <xs:choice>
@@ -15,8 +14,7 @@
         <xs:element ref="request"/>
         <xs:element ref="pttRequest"/>
         <xs:element ref="keyExchange"/>
-        <!-- *************************************************************** -->
-        <xs:element ref="response"/>
+        <xs:element name="response" type="typeResponse"/>
         <xs:element ref="selectEvent"/>
         <xs:element ref="event"/>
         <xs:element ref="pttEvent"/>

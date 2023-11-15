@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
-  <xs:include schemaLocation="DR-GW-Sds.sds.xsd"/>
-  <xs:include schemaLocation="DR-GW-Sds.report.xsd"/>
-  <xs:include schemaLocation="DR-GW-Sds.response.xsd"/>
-  <xs:include schemaLocation="DR-GW-Sds.types.xsd"/>
+  <xs:include schemaLocation="DR-GW-Sds.send.xsd"/>
+  <xs:include schemaLocation="DR-GW-Sds.receive.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
   <xs:element name="sds">
@@ -12,8 +10,7 @@
       <xs:choice>
         <xs:element ref="send"/>
         <xs:element ref="sendReport"/>
-        <!-- *********************************-->
-        <xs:element ref="response"/>
+        <xs:element name="response" type="typeResponse"/>
         <xs:element ref="sendEvent"/>
         <xs:element ref="receiveEvent"/>
         <xs:element ref="reportEvent"/>
@@ -21,6 +18,4 @@
     </xs:complexType>
   </xs:element>
 </xs:schema>
-
-
 

@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Status.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="supervise" type="typeSessionSupervise"/>
+  <xs:element name="send" type="typeStatusSend"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeSessionSupervise">
+  <xs:complexType name="typeStatusSend">
     <xs:complexContent>
-      <xs:extension base="typeRequest"/>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="status" type="typeStatus"/>
+        </xs:sequence>
+      </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="superviseEvent" type="typeSessionSuperviseEvent"/>
+  <xs:element name="sendEvent" type="typeStatusSendEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeSessionSuperviseEvent">
+  <xs:complexType name="typeStatusSendEvent">
     <xs:complexContent>
-      <xs:extension base="typeEvent"/>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="status" type="typeStatus" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
     </xs:complexContent>
   </xs:complexType>
 </xs:schema>
