@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Radio.types.xsd"/>
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:element name="track" type="typeTrack"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeTrack">
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="stop" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
+  <xs:element name="trackSubscriptionEvent" type="typeTrackSubscriptionEvent"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeTrackSubscriptionEvent">
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="stop" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
+  <xs:element name="trackEvent" type="typeTrackEvent"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeTrackEvent">
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="trackingData" type="typeRadioTrackingData"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
+  <xs:element name="groupsEvent" type="typeGroupsEvent"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupsEvent">
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:choice>
+            <xs:element name="group" type="typeRadioGroupSelection" maxOccurs="unbounded"/>
+            <xs:element name="deletedGroup" type="typeSubscriberAddress"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

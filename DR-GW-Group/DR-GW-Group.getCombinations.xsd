@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Group.Events.xsd"/>
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:element name="getCombinations">
+    <xs:annotation>
+      <xs:documentation>The method requests the groups that belong to the same
+        combined group as the group specified.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="typeRequest">
+          <xs:sequence>
+            <xs:element name="group" type="typeSubscriberAddress"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- *************************************************************** -->
+  <xs:element name="getCombinationsEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="group" type="typeSubscriberAddress"/>
+            <xs:sequence minOccurs="0">
+              <xs:element name="baseGroup" type="typeSubscriberAddress"/>
+              <xs:element name="constitGroup" type="typeSubscriberAddress" maxOccurs="7"/>
+            </xs:sequence>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

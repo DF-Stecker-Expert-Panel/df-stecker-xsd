@@ -3,7 +3,6 @@
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-OrganisationBlock.get.xsd"/>
   <xs:include schemaLocation="DR-GW-OrganisationBlock.getList.xsd"/>
-  <xs:include schemaLocation="DR-GW-OrganisationBlock.response.xsd"/>
   <xs:include schemaLocation="DR-GW-OrganisationBlock.event.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
@@ -12,8 +11,7 @@
       <xs:choice>
         <xs:element ref="get"/>
         <xs:element ref="getList"/>
-        <!-- *********************************-->
-        <xs:element ref="response"/>
+        <xs:element name="response" type="typeResponse"/>
         <xs:element ref="getEvent"/>
         <xs:element ref="getListEvent"/>
         <xs:element ref="event"/>
@@ -21,3 +19,4 @@
     </xs:complexType>
   </xs:element>
 </xs:schema>
+

@@ -1,224 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-Group"
-           targetNamespace="DR-GW-Interface/DR-GW-Group"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
-           xmlns:ctG="DR-GW-Interface/DR-GW-Group.CommonTypes"
-           xmlns:ct="DR-GW-Interface/CommonTypes">
-  <xs:annotation>
-    <xs:documentation>Version 1.1.0</xs:documentation>
-  </xs:annotation>
-  <xs:import namespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
-    schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/DR-GW-Group.CommonTypes"
-    schemaLocation="DR-GW-Group.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/CommonTypes"
-    schemaLocation="../Types/CommonTypes.xsd"/>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Group_Get">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Group.get.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.getList.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.getRadioMembers.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.getAppMembers.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.getCombinations.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.track.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.addRadioMember.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.removeRadioMember.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.addCombination.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.removeCombination.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.subscribeData.xsd"/>
+  <xs:include schemaLocation="DR-GW-Group.event.xsd"/>
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:element name="group">
     <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="ct:typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Group_GetList">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId"
-              minOccurs="0"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Group_GetRadioMembers">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="ct:typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Group_GetAppMembers">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="ct:typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Group_Track">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="ct:typeSubscriberAddress"/>
-            <xs:element name="mask" type="ctG:typeGroupTrackingMask"/>
-            <xs:element name="stop" type="xs:boolean"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Group_AddRadioMember">
-    <xs:annotation>
-      <xs:documentation>Requests the addition of a radio subscriber to a group.
-        This might cause DGNA operation in the air interface.</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
-            <xs:element name="group" type="ct:typeSubscriberAddress"/>
-            <xs:element name="membership" type="ctG:typeMembershipType"
-              minOccurs="0"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Group_RemoveRadioMember">
-    <xs:annotation>
-      <xs:documentation>Requests removing a radio subscriber from a group.
-        This might cause DGNA operation in the air interface.</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="radio" type="ct:typeSubscriberAddress"/>
-            <xs:element name="group" type="ct:typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Group_GetCombinations">
-    <xs:annotation>
-      <xs:documentation>The method requests the groups that belong to the same
-        combined group as the group specified.</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="ct:typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Group_AddCombination">
-    <xs:annotation>
-      <xs:documentation>Requests the addition of a group to a combined group.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="ct:typeSubscriberAddress"/>
-            <xs:element name="baseGroup" type="ct:typeSubscriberAddress"/>
-            <xs:element name="force" type="xs:boolean" minOccurs="0"
-              default="true"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="Group_RemoveCombination">
-    <xs:annotation>
-      <xs:documentation>Requests removing a group from a combined group.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="ct:typeSubscriberAddress"/>
-            <xs:element name="baseGroup" type="ct:typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-  
-<!-- *********************************************************************** -->
-  <xs:element name="Group_SubscribeData">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="ctG:typeGroupSubscribeData"
-              maxOccurs="unbounded"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
+      <xs:choice>
+        <xs:element ref="get"/>
+        <xs:element ref="getList"/>
+        <xs:element ref="getRadioMembers"/>
+        <xs:element ref="getAppMembers"/>
+        <xs:element ref="getCombinations"/>
+        <xs:element ref="track"/>
+        <xs:element ref="addRadioMember"/>
+        <xs:element ref="removeRadioMember"/>
+        <xs:element ref="addCombination"/>
+        <xs:element ref="removeCombination"/>
+        <xs:element ref="subscribeData"/>
+        <xs:element name="response" type="typeResponse"/>
+        <xs:element ref="getEvent"/>
+        <xs:element ref="getListEvent"/>
+        <xs:element ref="getRadioMembersEvent"/>
+        <xs:element ref="getAppMembersEvent"/>
+        <xs:element ref="trackSubscriptionEvent"/>
+        <xs:element ref="radioMemberEvent"/>
+        <xs:element ref="appMemberEvent"/>
+        <xs:element ref="combinationEvent"/>
+        <xs:element ref="addRadioMemberEvent"/>
+        <xs:element ref="removeRadioMemberEvent"/>
+        <xs:element ref="addCombinationEvent"/>
+        <xs:element ref="removeCombinationEvent"/>
+        <xs:element ref="subscribeDataEvent"/>
+        <xs:element ref="event"/>
+      </xs:choice>
     </xs:complexType>
   </xs:element>
 </xs:schema>
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:element name="enable" type="typeEnable"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeEnable">
+    <xs:annotation>
+      <xs:documentation>This method is used to Enable the radio terminal over the air.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="reason" type="xs:unsignedByte" minOccurs="0"/>
+          <xs:element name="enable" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
+  <xs:element name="disable" type="typeDisable"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeDisable">
+    <xs:annotation>
+      <xs:documentation>This method is used to disable the radio terminal over the air.
+        If no reason is supplied, then the DF-Gateway sets the default reason.
+        There is no default reason value, it depends on the DF-Gateway configuration
+        what reason is used when no reason is supplied by DF-Client.
+
+        See TCS API Description for all possible reasons for disabling.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="reason" type="xs:unsignedByte" minOccurs="0"/>
+          <xs:element name="enable" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
+  <xs:element name="enableDisableEvent" type="typeEnableDisableEvent"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeEnableDisableEvent">
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="reason" type="xs:unsignedByte" minOccurs="0"/>
+          <xs:element name="enabled" type="xs:boolean"/>
+          <xs:element name="overTheAir" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

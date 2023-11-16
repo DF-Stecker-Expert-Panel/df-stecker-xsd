@@ -53,7 +53,7 @@
     </xs:restriction>
   </xs:simpleType>
   <!-- *********************************************************************** -->
-  <xs:simpleType name="typeOPTA">
+  <xs:simpleType name="typeOpta">
     <xs:annotation>
       <xs:documentation>OPTA string. Maximum length is
       24 characters.</xs:documentation>
@@ -99,7 +99,7 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="external" type="typeExternal" minOccurs="0"/>
-      <xs:element name="opta" type="typeOPTA" minOccurs="0"/>
+      <xs:element name="opta" type="typeOpta" minOccurs="0"/>
       <xs:element name="cell" type="xs:short" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
@@ -147,3 +147,5 @@
     </xs:annotation>
   </xs:complexType>
 </xs:schema>
+
+
