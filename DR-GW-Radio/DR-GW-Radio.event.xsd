@@ -4,16 +4,17 @@
   <xs:include schemaLocation="DR-GW-Radio.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="event" type="typeEvent"/>
+  <xs:element name="event" type="typeRadioEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="radio" type="typeRadio"/>
-          <xs:element name="delete" type="xs:boolean"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeRadioEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="typeRadio"/>
+            <xs:element name="delete" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>

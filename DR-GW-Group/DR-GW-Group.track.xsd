@@ -4,11 +4,12 @@
   <xs:include schemaLocation="DR-GW-Group.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="track">
+  <xs:element name="track" type="typeGroupTrack"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupTrack">
       <xs:complexContent>
         <xs:extension base="typeRequest">
           <xs:sequence>
@@ -19,13 +20,13 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="trackSubscriptionEvent">
+  <xs:element name="trackSubscriptionEvent" type="typeGroupTrackSubscriptionEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupTrackSubscriptionEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
@@ -36,13 +37,13 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="radioMemberEvent">
+  <xs:element name="radioMemberEvent" type="typeGroupRadioMemberEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupRadioMemberEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
@@ -53,13 +54,13 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="appMemberEvent">
+  <xs:element name="appMemberEvent" type="typeGroupAppMemberEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupAppMemberEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
@@ -70,13 +71,13 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="combinationEvent">
+  <xs:element name="combinationEvent" type="typeGroupCombinationEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupCombinationEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
@@ -87,5 +88,5 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
+  <!-- *************************************************************** -->
 </xs:schema>

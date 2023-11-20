@@ -4,13 +4,14 @@
   <xs:include schemaLocation="DR-GW-Group.Events.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="getCombinations">
+  <xs:element name="getCombinations" type="typeGroupGetCombinations"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation>The method requests the groups that belong to the same
         combined group as the group specified.
       </xs:documentation>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupGetCombinations">
       <xs:complexContent>
         <xs:extension base="typeRequest">
           <xs:sequence>
@@ -19,13 +20,13 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="getCombinationsEvent">
+  <xs:element name="getCombinationsEvent" type="typeGroupGetCombinationsEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupGetCombinationsEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
@@ -38,5 +39,5 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
+  <!-- *************************************************************** -->
 </xs:schema>

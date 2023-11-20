@@ -4,57 +4,58 @@
   <xs:include schemaLocation="DR-GW-Radio.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="track" type="typeTrack"/>
+  <xs:element name="track" type="typeRadioTrack"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeTrack">
-    <xs:complexContent>
-      <xs:extension base="typeRequest">
-        <xs:sequence>
-          <xs:element name="radio" type="typeSubscriberAddress"/>
-          <xs:element name="stop" type="xs:boolean"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeRadioTrack">
+      <xs:complexContent>
+        <xs:extension base="typeRequest">
+          <xs:sequence>
+            <xs:element name="radio" type="typeSubscriberAddress"/>
+            <xs:element name="stop" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="trackSubscriptionEvent" type="typeTrackSubscriptionEvent"/>
+  <xs:element name="trackSubscriptionEvent" type="typeRadioTrackSubscriptionEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeTrackSubscriptionEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="radio" type="typeSubscriberAddress"/>
-          <xs:element name="stop" type="xs:boolean"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeRadioTrackSubscriptionEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="typeSubscriberAddress"/>
+            <xs:element name="stop" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="trackEvent" type="typeTrackEvent"/>
+  <xs:element name="trackEvent" type="typeRadioTrackEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeTrackEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="trackingData" type="typeRadioTrackingData"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeRadioTrackEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="trackingData" type="typeRadioTrackingData"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="groupsEvent" type="typeGroupsEvent"/>
+  <xs:element name="groupsEvent" type="typeRadioGroupsEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeGroupsEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="radio" type="typeSubscriberAddress"/>
-          <xs:choice>
-            <xs:element name="group" type="typeRadioGroupSelection" maxOccurs="unbounded"/>
-            <xs:element name="deletedGroup" type="typeSubscriberAddress"/>
-          </xs:choice>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeRadioGroupsEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="typeSubscriberAddress"/>
+            <xs:choice>
+              <xs:element name="group" type="typeRadioGroupSelection" maxOccurs="unbounded"/>
+              <xs:element name="deletedGroup" type="typeSubscriberAddress"/>
+            </xs:choice>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>

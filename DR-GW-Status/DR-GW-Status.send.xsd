@@ -6,25 +6,26 @@
   <!-- *************************************************************** -->
   <xs:element name="send" type="typeStatusSend"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeStatusSend">
-    <xs:complexContent>
-      <xs:extension base="typeRequest">
-        <xs:sequence>
-          <xs:element name="status" type="typeStatus"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeStatusSend">
+      <xs:complexContent>
+        <xs:extension base="typeRequest">
+          <xs:sequence>
+            <xs:element name="status" type="typeStatus"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
   <xs:element name="sendEvent" type="typeStatusSendEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeStatusSendEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="status" type="typeStatus" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeStatusSendEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="status" type="typeStatus" minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>

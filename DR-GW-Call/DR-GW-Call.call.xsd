@@ -6,41 +6,39 @@
   <!-- *************************************************************** -->
   <xs:element name="request" type="typeCallRequest"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeCallRequest">
-    <xs:annotation>
-      <xs:documentation>DR-GW-Call request. All call related operations
+    <xs:complexType name="typeCallRequest">
+      <xs:annotation>
+        <xs:documentation>DR-GW-Call request. All call related operations
         are accomplished using this service.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="typeRequest">
-        <xs:sequence>
-          <xs:element name="action" type="typeActionRequest"/>
-          <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
-          <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
-          <xs:element name="calledParty" type="typeAddress" minOccurs="0"/>
-          <xs:element name="workstationId" type="typeWorkstationId" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+      </xs:annotation>
+      <xs:complexContent>
+        <xs:extension base="typeRequest">
+          <xs:sequence>
+            <xs:element name="action" type="typeActionRequest"/>
+            <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
+            <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
+            <xs:element name="calledParty" type="typeAddress" minOccurs="0"/>
+            <xs:element name="workstationId" type="typeWorkstationId" minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
   <xs:element name="event" type="typeCallEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeCallEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
-          <xs:element name="action" type="typeActionEvent"/>
-          <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
-          <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
-          <xs:element name="calledParty" type="typeAddress" minOccurs="0"/>
-          <xs:element name="disconnectCause" type="typeDisconnectCause" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeCallEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
+            <xs:element name="action" type="typeActionEvent"/>
+            <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
+            <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
+            <xs:element name="calledParty" type="typeAddress" minOccurs="0"/>
+            <xs:element name="disconnectCause" type="typeDisconnectCause" minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>
-
-
-

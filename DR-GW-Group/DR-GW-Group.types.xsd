@@ -77,7 +77,7 @@
     </xs:sequence>
   </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeGroupSubscribeData">
+  <xs:complexType name="typeGroupDataSubscription">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
@@ -88,14 +88,5 @@
     </xs:sequence>
   </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeGroupSubscribeDataEvent">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="addr" type="typeSubscriberAddress"/>
-      <xs:element name="useSDS" type="xs:boolean"/>
-      <xs:element name="useStatus" type="xs:boolean"/>
-    </xs:sequence>
-  </xs:complexType>
 </xs:schema>
+

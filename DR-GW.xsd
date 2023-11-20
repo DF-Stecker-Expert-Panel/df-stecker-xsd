@@ -8,6 +8,7 @@
   <xs:include schemaLocation="DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.xsd"/>
   <xs:include schemaLocation="DR-GW-Group/DR-GW-Group.xsd"/>
   <xs:include schemaLocation="DR-GW-Radio/DR-GW-Radio.xsd"/>
+  <xs:include schemaLocation="DR-GW-Application/DR-GW-Application.xsd"/>
   <!-- *************************************************************** -->
   <xs:element name="dr-gw">
     <xs:complexType>
@@ -19,6 +20,7 @@
         <xs:element ref="org"/>
         <xs:element ref="group"/>
         <xs:element ref="radio"/>
+        <xs:element ref="app"/>
       </xs:choice>
       <xs:attribute name="version" fixed="2.0" use="required"/>
     </xs:complexType>

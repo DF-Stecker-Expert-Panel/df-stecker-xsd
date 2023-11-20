@@ -6,33 +6,34 @@
   <!-- *************************************************************** -->
   <xs:element name="login" type="typeSessionLogin"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeSessionLogin">
-    <xs:annotation>
-      <xs:documentation>Login procedure. The username, password and the complete
+    <xs:complexType name="typeSessionLogin">
+      <xs:annotation>
+        <xs:documentation>Login procedure. The username, password and the complete
       authentication is done using mechanisms of the transport protocol.
       Digest access authentication on HTTP or SIP digest authentication on SIP.
       Both are principialy same.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="typeRequest">
-        <xs:sequence>
-          <xs:element name="clientid" type="xs:string"/>
-          <xs:element name="supervise" type="typeSuperviseTimeout" default="60" minOccurs="0"/>
-          <xs:element name="version" type="xs:string" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+      </xs:annotation>
+      <xs:complexContent>
+        <xs:extension base="typeRequest">
+          <xs:sequence>
+            <xs:element name="clientid" type="xs:string"/>
+            <xs:element name="supervise" type="typeSuperviseTimeout" default="60" minOccurs="0"/>
+            <xs:element name="version" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
   <xs:element name="loginEvent" type="typeSessionLoginEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeSessionLoginEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="issi" type="xs:string" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeSessionLoginEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="issi" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>

@@ -3,13 +3,14 @@
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="removeRadioMember">
+  <xs:element name="removeRadioMember" type="typeGroupRemoveRadioMember"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation>Requests removing a radio subscriber from a group.
         This might cause DGNA operation in the air interface.
       </xs:documentation>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupRemoveRadioMember">
       <xs:complexContent>
         <xs:extension base="typeRequest">
           <xs:sequence>
@@ -19,13 +20,13 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="addRadioMemberEvent">
+  <xs:element name="removeRadioMemberEvent" type="typeGroupRemoveRadioMemberEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupRemoveRadioMemberEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
@@ -35,21 +36,5 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="removeRadioMemberEvent">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="radio" type="typeSubscriberAddress"/>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
 </xs:schema>

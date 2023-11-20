@@ -3,29 +3,30 @@
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="changeOpta" type="typeChangeOpta"/>
+  <xs:element name="changeOpta" type="typeRadioChangeOpta"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeChangeOpta">
-    <xs:complexContent>
-      <xs:extension base="typeRequest">
-        <xs:sequence>
-          <xs:element name="radio" type="typeSubscriberAddress"/>
-          <xs:element name="opta" type="typeOpta"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeRadioChangeOpta">
+      <xs:complexContent>
+        <xs:extension base="typeRequest">
+          <xs:sequence>
+            <xs:element name="radio" type="typeSubscriberAddress"/>
+            <xs:element name="opta" type="typeOpta"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="changeOptaEvent" type="typeChangeOptaEvent"/>
+  <xs:element name="changeOptaEvent" type="typeRadioChangeOptaEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeChangeOptaEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="radio" type="typeSubscriberAddress"/>
-          <xs:element name="opta" type="typeOpta"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeRadioChangeOptaEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="typeSubscriberAddress"/>
+            <xs:element name="opta" type="typeOpta"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>

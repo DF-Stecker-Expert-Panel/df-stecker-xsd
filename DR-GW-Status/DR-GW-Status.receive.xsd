@@ -6,13 +6,14 @@
   <!-- *************************************************************** -->
   <xs:element name="receiveEvent" type="typeStatusReceiveEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeStatusReceiveEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="status" type="typeStatus"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeStatusReceiveEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="status" type="typeStatus"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>

@@ -4,11 +4,12 @@
   <xs:include schemaLocation="DR-GW-Group.Events.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="getRadioMembers">
+  <xs:element name="getRadioMembers" type="typeGroupGetRadioMembers"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupGetRadioMembers">
       <xs:complexContent>
         <xs:extension base="typeRequest">
           <xs:sequence>
@@ -17,13 +18,13 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="getRadioMembersEvent">
+  <xs:element name="getRadioMembersEvent" type="typeGroupGetRadioMembersEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupGetRadioMembersEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
@@ -34,5 +35,5 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
+  <!-- *************************************************************** -->
 </xs:schema>

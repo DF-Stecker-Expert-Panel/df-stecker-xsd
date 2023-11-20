@@ -5,17 +5,18 @@
   <!-- *************************************************************** -->
   <xs:element name="supervise" type="typeSessionSupervise"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeSessionSupervise">
-    <xs:complexContent>
-      <xs:extension base="typeRequest"/>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeSessionSupervise">
+      <xs:complexContent>
+        <xs:extension base="typeRequest"/>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
   <xs:element name="superviseEvent" type="typeSessionSuperviseEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeSessionSuperviseEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent"/>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeSessionSuperviseEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent"/>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>

@@ -6,14 +6,15 @@
   <!-- *************************************************************** -->
   <xs:element name="event" type="typeOrgEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeOrgEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="orgblock" type="typeOrganisationBlock"/>
-          <xs:element name="delete" type="xs:boolean"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeOrgEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="orgblock" type="typeOrganisationBlock"/>
+            <xs:element name="delete" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>

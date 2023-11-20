@@ -4,33 +4,34 @@
   <xs:include schemaLocation="DR-GW-Group.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="subscribeData">
+  <xs:element name="subscribeData" type="typeGroupSubscribeData"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupSubscribeData">
       <xs:complexContent>
         <xs:extension base="typeRequest">
           <xs:sequence>
-            <xs:element name="group" type="typeGroupSubscribeData" maxOccurs="unbounded"/>
+            <xs:element name="group" type="typeGroupDataSubscription" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="subscribeDataEvent">
+  <xs:element name="subscribeDataEvent" type="typeGroupSubscribeDataEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupSubscribeDataEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
-            <xs:element name="group" type="typeGroupSubscribeDataEvent"/>
+            <xs:element name="group" type="typeGroupDataSubscription"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
+  <!-- *************************************************************** -->
 </xs:schema>

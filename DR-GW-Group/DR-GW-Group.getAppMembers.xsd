@@ -3,11 +3,12 @@
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="getAppMembers">
+  <xs:element name="getAppMembers" type="typeGroupGetAppMembers"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupGetAppMembers">
       <xs:complexContent>
         <xs:extension base="typeRequest">
           <xs:sequence>
@@ -16,13 +17,13 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="getAppMembersEvent">
+  <xs:element name="getAppMembersEvent" type="typeGroupGetAppMembersEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupGetAppMembersEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
@@ -32,5 +33,5 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
+  <!-- *************************************************************** -->
 </xs:schema>

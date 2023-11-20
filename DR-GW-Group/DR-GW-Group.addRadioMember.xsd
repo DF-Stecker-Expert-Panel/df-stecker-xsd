@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Group.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="addRadioMember">
-    <xs:annotation>
-      <xs:documentation>Requests the addition of a radio subscriber to a group.
+  <xs:element name="addRadioMember" type="typeGroupAddRadioMember"/>
+  <!-- *************************************************************** -->
+  <xs:annotation>
+    <xs:documentation>Requests the addition of a radio subscriber to a group.
         This might cause DGNA operation in the air interface.
       </xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="typeRequest">
-          <xs:sequence>
-            <xs:element name="radio" type="typeSubscriberAddress"/>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-            <xs:element name="membership" type="typeMembershipType" minOccurs="0"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
+  </xs:annotation>
+  <xs:complexType name="typeGroupAddRadioMember">
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+          <xs:element name="membership" type="typeMembershipType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="addRadioMemberEvent">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="radio" type="typeSubscriberAddress"/>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="addRadioMemberEvent" type="typeGroupAddRadioMemberEvent"/>
+  <!-- *************************************************************** -->
+  <xs:annotation>
+    <xs:documentation/>
+  </xs:annotation>
+  <xs:complexType name="typeGroupAddRadioMemberEvent">
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>

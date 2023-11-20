@@ -16,7 +16,6 @@
       <xs:element name="opta" type="typeLastKnownOPTA" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-
 <!-- *********************************************************************** -->
   <xs:complexType name="typeRadioGroupSelection">
     <xs:annotation>
@@ -27,7 +26,6 @@
       <xs:element name="level" type="typeGroupSelectionLevel"/>
     </xs:sequence>
   </xs:complexType>
-
 <!-- *********************************************************************** -->
   <xs:complexType name="typeRadioTrackingData">
     <xs:annotation>
@@ -47,7 +45,7 @@
       <xs:element name="emergency" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
-  
+
 <!-- *********************************************************************** -->
   <xs:complexType name="typeStatusIndicator">
     <xs:annotation>
@@ -58,7 +56,6 @@
       <xs:element name="time" type="xs:dateTime"/>
     </xs:sequence>
   </xs:complexType>
-  
 <!-- *********************************************************************** -->
   <xs:simpleType name="typeCallType">
     <xs:annotation>
@@ -70,7 +67,6 @@
       <xs:enumeration value="individual"/>
     </xs:restriction>
   </xs:simpleType>
-  
 <!-- *********************************************************************** -->
   <xs:complexType name="typeLastKnownOPTA">
     <xs:sequence>
@@ -78,7 +74,6 @@
       <xs:element name="opta" type="typeOpta"/>
      </xs:sequence>
   </xs:complexType>
-  
 <!-- *********************************************************************** -->
   <xs:simpleType name="typeGroupSelectionLevel">
     <xs:annotation>
@@ -94,42 +89,3 @@
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

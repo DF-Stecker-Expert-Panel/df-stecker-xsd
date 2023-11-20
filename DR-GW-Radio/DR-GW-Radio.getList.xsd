@@ -5,28 +5,29 @@
   <xs:include schemaLocation="DR-GW-Radio.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="getList" type="typeGetList"/>
+  <xs:element name="getList" type="typeRadioGetList"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeGetList">
-    <xs:complexContent>
-      <xs:extension base="typeRequest">
-        <xs:sequence>
-          <xs:element name="orgblockId" type="typeOrganisationBlockId" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeRadioGetList">
+      <xs:complexContent>
+        <xs:extension base="typeRequest">
+          <xs:sequence>
+            <xs:element name="orgblockId" type="typeOrganisationBlockId" minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="getListEvent" type="typeGetListEvent"/>
+  <xs:element name="getListEvent" type="typeRadioGetListEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeGetListEvent">
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="radio" type="typeRadio" minOccurs="0" maxOccurs="unbounded"/>
-          <xs:element name="listEnd" type="xs:boolean"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeRadioGetListEvent">
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="radio" type="typeRadio" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="listEnd" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *************************************************************** -->
 </xs:schema>

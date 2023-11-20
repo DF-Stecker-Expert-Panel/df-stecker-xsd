@@ -3,12 +3,13 @@
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="removeCombination">
+  <xs:element name="removeCombination" type="typeGroupRemoveCombination"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation>Requests removing a group from a combined group.
       </xs:documentation>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupRemoveCombination">
       <xs:complexContent>
         <xs:extension base="typeRequest">
           <xs:sequence>
@@ -18,13 +19,13 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="removeCombinationEvent">
+  <xs:element name="removeCombinationEvent" type="typeGroupRemoveCombinationEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupRemoveCombinationEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
@@ -34,5 +35,5 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
+  <!-- *************************************************************** -->
 </xs:schema>

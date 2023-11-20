@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.types.xsd"/>
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+<!-- *********************************************************************** -->
+  <xs:complexType name="typeApplication">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="addr" type="typeSubscriberAddress"/>
+      <xs:element name="alias" type="xs:normalizedString"/>
+      <xs:element name="orgblockId" type="typeOrganisationBlockId"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

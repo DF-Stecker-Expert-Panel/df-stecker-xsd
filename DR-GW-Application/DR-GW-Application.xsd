@@ -1,75 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-Application"
-           targetNamespace="DR-GW-Interface/DR-GW-Application"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
-           xmlns:ctG="DR-GW-Interface/DR-GW-Group.CommonTypes"
-           xmlns:ctA="DR-GW-Interface/DR-GW-Application.CommonTypes"
-           xmlns:ct="DR-GW-Interface/CommonTypes">
-  <xs:annotation>
-    <xs:documentation>Version 1.1.0</xs:documentation>
-  </xs:annotation>
-  <xs:import namespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes" schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/DR-GW-Group.CommonTypes" schemaLocation="../DR-GW-Group/DR-GW-Group.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/DR-GW-Application.CommonTypes" schemaLocation="DR-GW-Application.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
-  
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Application.get.xsd"/>
+  <xs:include schemaLocation="DR-GW-Application.getList.xsd"/>
 <!-- *********************************************************************** -->
-  <xs:element name="App_Get">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
+  <xs:element name="app">
     <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="app" type="ct:typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-
-<!-- *********************************************************************** -->
-  <xs:element name="App_GetList">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ct:typeRequest">
-          <xs:sequence>
-            <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId"
-              minOccurs="0"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
+      <xs:choice>
+        <xs:element ref="get"/>
+        <xs:element ref="getList"/>
+        <xs:element name="response" type="typeResponse"/>
+        <xs:element ref="getEvent"/>
+        <xs:element ref="getListEvent"/>
+      </xs:choice>
     </xs:complexType>
   </xs:element>
 </xs:schema>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

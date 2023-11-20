@@ -3,12 +3,13 @@
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="addCombination">
+  <xs:element name="addCombination" type="typeGroupAddCombination"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation>Requests the addition of a group to a combined group.
       </xs:documentation>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupAddCombination">
       <xs:complexContent>
         <xs:extension base="typeRequest">
           <xs:sequence>
@@ -19,13 +20,13 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
   <!-- *************************************************************** -->
-  <xs:element name="addCombinationEvent">
+  <xs:element name="addCombinationEvent" type="typeGroupAddCombinationEvent"/>
+  <!-- *************************************************************** -->
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType>
+    <xs:complexType name="typeGroupAddCombinationEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>
@@ -35,6 +36,5 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  </xs:element>
+  <!-- *************************************************************** -->
 </xs:schema>
-

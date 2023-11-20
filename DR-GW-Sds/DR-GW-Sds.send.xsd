@@ -6,61 +6,46 @@
   <!-- *************************************************************** -->
   <xs:element name="send" type="typeSdsSend"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeSdsSend">
-    <xs:complexContent>
-      <xs:extension base="typeRequest">
-        <xs:sequence>
-          <xs:element name="sds" type="typeSds"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeSdsSend">
+      <xs:complexContent>
+        <xs:extension base="typeRequest">
+          <xs:sequence>
+            <xs:element name="sds" type="typeSds"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
   <xs:element name="sendEvent" type="typeSdsSendEvent"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeSdsSendEvent">
-    <xs:annotation>
-      <xs:documentation>An message reference is returned in the response for
+    <xs:complexType name="typeSdsSendEvent">
+      <xs:annotation>
+        <xs:documentation>An message reference is returned in the response for
         later message identification in case delivery and/or consume requests
         were asked. Is only valid for SDS-TL.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="msgRef" type="xs:unsignedByte" minOccurs="0" default="0"/>
-          <xs:element name="sds" type="typeSds"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+      </xs:annotation>
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="msgRef" type="xs:unsignedByte" minOccurs="0" default="0"/>
+            <xs:element name="sds" type="typeSds"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
   <xs:element name="sendReport" type="typeSdsSendReport"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeSdsSendReport">
-    <xs:complexContent>
-      <xs:extension base="typeRequest">
-        <xs:sequence>
-          <xs:element name="target" type="typeAddress"/>
-          <xs:element name="msgRef" type="xs:unsignedByte"/>
-          <xs:element name="deliveryStatus" type="xs:unsignedByte"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+    <xs:complexType name="typeSdsSendReport">
+      <xs:complexContent>
+        <xs:extension base="typeRequest">
+          <xs:sequence>
+            <xs:element name="target" type="typeAddress"/>
+            <xs:element name="msgRef" type="xs:unsignedByte"/>
+            <xs:element name="deliveryStatus" type="xs:unsignedByte"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="receiveEvent" type="typeSdsReceiveEvent"/>
-  <!-- *************************************************************** -->
-  <xs:complexType name="typeSdsReceiveEvent">
-    <xs:annotation>
-      <xs:documentation>ReceiveEvent is fired upon received SDS.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="typeEvent">
-        <xs:sequence>
-          <xs:element name="sds" type="typeSds"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
 </xs:schema>

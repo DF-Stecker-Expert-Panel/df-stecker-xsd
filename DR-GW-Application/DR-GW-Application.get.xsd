@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.types.xsd"/>
+  <xs:include schemaLocation="DR-GW-Application.types.xsd"/>
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *********************************************************************** -->
+  <xs:element name="get" type="typeAppGet"/>
+  <!-- *********************************************************************** -->
+  <xs:complexType name="typeAppGet">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="app" type="typeSubscriberAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *********************************************************************** -->
+  <xs:element name="getEvent" type="typeAppGetEvent"/>
+  <!-- *********************************************************************** -->
+    <xs:complexType name="typeAppGetEvent">
+      <xs:annotation>
+        <xs:documentation/>
+      </xs:annotation>
+      <xs:complexContent>
+        <xs:extension base="typeEvent">
+          <xs:sequence>
+            <xs:element name="app" type="typeApplication" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  <!-- *********************************************************************** -->
+</xs:schema>
