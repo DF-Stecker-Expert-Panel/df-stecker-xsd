@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
-  <xs:include schemaLocation="DR-GW-Call.Types.xsd"/>
+  <xs:include schemaLocation="DR-GW-Call.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
   <xs:element name="select" type="typeCallSelect"/>
@@ -34,3 +34,4 @@
     </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
+

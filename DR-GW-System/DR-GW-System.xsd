@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-System"
-           targetNamespace="DR-GW-Interface/DR-GW-System"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:ct="DR-GW-Interface/CommonTypes">
-  <xs:annotation>
-    <xs:documentation>Version 1.1.0</xs:documentation>
-  </xs:annotation>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="DR-GW-System.tetraStates.xsd"/>
+  <xs:include schemaLocation="DR-GW-System.log.xsd"/>
+  <xs:include schemaLocation="DR-GW-System.event.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:element name="system">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="tetraStatesEvent"/>
+        <xs:element ref="logEvent"/>
+        <xs:element ref="event"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
-
-
-
-

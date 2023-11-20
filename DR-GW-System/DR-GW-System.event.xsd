@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="DR-GW-System.types.xsd"/>
+  <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:element name="event" type="typeSystemEvent"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeSystemEvent">
+    <xs:annotation>
+      <xs:documentation>Transmitts additional information (errors, notices)
+        in both numeric and textual form.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="value" type="xs:hexBinary" minOccurs="0"/>
+          <xs:element name="text" type="xs:normalizedString" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
+</xs:schema>
