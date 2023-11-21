@@ -3,8 +3,6 @@
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="enable" type="typeRadioEnable"/>
-  <!-- *************************************************************** -->
     <xs:complexType name="typeRadioEnable">
       <xs:annotation>
         <xs:documentation>This method is used to Enable the radio terminal over the air.
@@ -21,8 +19,6 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  <!-- *************************************************************** -->
-  <xs:element name="disable" type="typeRadioDisable"/>
   <!-- *************************************************************** -->
     <xs:complexType name="typeRadioDisable">
       <xs:annotation>
@@ -46,8 +42,6 @@
       </xs:complexContent>
     </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="enableDisableEvent" type="typeRadioEnableDisableEvent"/>
-  <!-- *************************************************************** -->
     <xs:complexType name="typeRadioEnableDisableEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
@@ -62,3 +56,4 @@
     </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
+

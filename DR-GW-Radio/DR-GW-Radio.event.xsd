@@ -4,8 +4,6 @@
   <xs:include schemaLocation="DR-GW-Radio.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="event" type="typeRadioEvent"/>
-  <!-- *************************************************************** -->
     <xs:complexType name="typeRadioEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
@@ -18,3 +16,4 @@
     </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
+

@@ -9,14 +9,15 @@
   <xs:element name="session">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="login"/>
-        <xs:element ref="logout"/>
-        <xs:element ref="supervise"/>
-        <xs:element ref="check"/>
+        <xs:element name="login" type="typeSessionLogin"/>
+        <xs:element name="logout" type="typeSessionLogout"/>
+        <xs:element name="supervise" type="typeSessionSupervise"/>
+        <xs:element name="check" type="typeSessionCheck"/>
         <xs:element name="response" type="typeResponse"/>
-        <xs:element ref="loginEvent"/>
-        <xs:element ref="superviseEvent"/>
+        <xs:element name="loginEvent" type="typeSessionLoginEvent"/>
+        <xs:element name="superviseEvent" type="typeSessionSuperviseEvent"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>
 </xs:schema>
+

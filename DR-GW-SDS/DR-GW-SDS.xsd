@@ -8,12 +8,12 @@
   <xs:element name="sds">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="send"/>
-        <xs:element ref="sendReport"/>
+        <xs:element name="send" type="typeSdsSend"/>
+        <xs:element name="sendReport" type="typeSdsSendReport"/>
         <xs:element name="response" type="typeResponse"/>
-        <xs:element ref="sendEvent"/>
-        <xs:element ref="receiveEvent"/>
-        <xs:element ref="reportEvent"/>
+        <xs:element name="sendEvent" type="typeSdsSendEvent"/>
+        <xs:element name="receiveEvent" type="typeSdsReceiveEvent"/>
+        <xs:element name="reportEvent" type="typeSdsReportEvent"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>

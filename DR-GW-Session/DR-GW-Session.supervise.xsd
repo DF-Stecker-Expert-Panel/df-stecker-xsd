@@ -3,20 +3,25 @@
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="supervise" type="typeSessionSupervise"/>
-  <!-- *************************************************************** -->
     <xs:complexType name="typeSessionSupervise">
+      <xs:annotation>
+        <xs:documentation>
+        </xs:documentation>
+      </xs:annotation>
       <xs:complexContent>
         <xs:extension base="typeRequest"/>
       </xs:complexContent>
     </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="superviseEvent" type="typeSessionSuperviseEvent"/>
-  <!-- *************************************************************** -->
     <xs:complexType name="typeSessionSuperviseEvent">
+      <xs:annotation>
+        <xs:documentation>
+        </xs:documentation>
+      </xs:annotation>
       <xs:complexContent>
         <xs:extension base="typeEvent"/>
       </xs:complexContent>
     </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
+

@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Call.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="request" type="typeCallRequest"/>
+  <xs:complexType name="typeCallRequest">
+    <xs:annotation>
+      <xs:documentation>The method is used to accomplish all call related operations.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="action" type="typeActionRequest"/>
+          <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
+          <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
+          <xs:element name="calledParty" type="typeAddress" minOccurs="0"/>
+          <xs:element name="workstationId" type="typeWorkstationId" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-    <xs:complexType name="typeCallRequest">
-      <xs:annotation>
-        <xs:documentation>DR-GW-Call request. All call related operations
-        are accomplished using this service.</xs:documentation>
-      </xs:annotation>
-      <xs:complexContent>
-        <xs:extension base="typeRequest">
-          <xs:sequence>
-            <xs:element name="action" type="typeActionRequest"/>
-            <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
-            <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
-            <xs:element name="calledParty" type="typeAddress" minOccurs="0"/>
-            <xs:element name="workstationId" type="typeWorkstationId" minOccurs="0"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  <!-- *************************************************************** -->
-  <xs:element name="event" type="typeCallEvent"/>
-  <!-- *************************************************************** -->
-    <xs:complexType name="typeCallEvent">
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
-            <xs:element name="action" type="typeActionEvent"/>
-            <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
-            <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
-            <xs:element name="calledParty" type="typeAddress" minOccurs="0"/>
-            <xs:element name="disconnectCause" type="typeDisconnectCause" minOccurs="0"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+  <xs:complexType name="typeCallEvent">
+    <xs:annotation>
+      <xs:documentation>
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="action" type="typeActionEvent"/>
+          <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
+          <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
+          <xs:element name="calledParty" type="typeAddress" minOccurs="0"/>
+          <xs:element name="disconnectCause" type="typeDisconnectCause" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>

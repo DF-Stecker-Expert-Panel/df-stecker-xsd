@@ -1,61 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Call.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="keyExchange" type="typeCallKeyExchange"/>
-  <!-- *************************************************************** -->
-    <xs:complexType name="typeCallKeyExchange">
-      <xs:annotation>
-        <xs:documentation>For triggering the group key exchange. Key exchange events are sent in Call_KeyXEvent.
+  <xs:complexType name="typeCallKeyExchange">
+    <xs:annotation>
+      <xs:documentation>For triggering the group key exchange. Key exchange events are sent in Call_KeyXEvent.
       </xs:documentation>
-      </xs:annotation>
-      <xs:complexContent>
-        <xs:extension base="typeRequest">
-          <xs:sequence>
-            <xs:element name="action" type="typeKeyExchangeAction"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="action" type="typeKeyExchangeAction"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="keyExchangeEvent" type="typeCallKeyExchangeEvent"/>
-  <!-- *************************************************************** -->
-    <xs:complexType name="typeCallKeyExchangeEvent">
-      <xs:annotation>
-        <xs:documentation>Events regarding key exchange. Contains the complete
+  <xs:complexType name="typeCallKeyExchangeEvent">
+    <xs:annotation>
+      <xs:documentation>Events regarding key exchange. Contains the complete
         key exchange information from the BOS-Simcard.
       </xs:documentation>
-      </xs:annotation>
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="state" type="typeKeyExchangeState">
-              <xs:annotation>
-                <xs:documentation>Represents the current key exchange state.
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="state" type="typeKeyExchangeState">
+            <xs:annotation>
+              <xs:documentation>Represents the current key exchange state.
               </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="code" type="typeKeyExchangeCode"/>
-            <xs:choice>
-              <xs:sequence>
-                <xs:element name="priority" type="typeKeyExchangeTextPriority" minOccurs="0" default="normal"/>
-                <xs:element name="interaction" type="xs:boolean" minOccurs="0" default="false">
-                  <xs:annotation>
-                    <xs:documentation>If user interaction is required, then the
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="code" type="typeKeyExchangeCode"/>
+          <xs:choice>
+            <xs:sequence>
+              <xs:element name="priority" type="typeKeyExchangeTextPriority" minOccurs="0"
+                default="normal"/>
+              <xs:element name="interaction" type="xs:boolean" minOccurs="0" default="false">
+                <xs:annotation>
+                  <xs:documentation>If user interaction is required, then the
                     message box should be visible until the interaction is made,
                     otherwise should be hidden after delay.
                   </xs:documentation>
-                  </xs:annotation>
-                </xs:element>
-                <xs:element name="text" type="typeKeyExchangeText"/>
-              </xs:sequence>
-              <xs:element name="tone" type="xs:boolean" fixed="true"/>
-            </xs:choice>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="text" type="typeKeyExchangeText"/>
+            </xs:sequence>
+            <xs:element name="tone" type="xs:boolean" fixed="true"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
-

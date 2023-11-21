@@ -1,40 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="removeRadioMember" type="typeGroupRemoveRadioMember"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupRemoveRadioMember">
     <xs:annotation>
       <xs:documentation>Requests removing a radio subscriber from a group.
         This might cause DGNA operation in the air interface.
       </xs:documentation>
     </xs:annotation>
-    <xs:complexType name="typeGroupRemoveRadioMember">
-      <xs:complexContent>
-        <xs:extension base="typeRequest">
-          <xs:sequence>
-            <xs:element name="radio" type="typeSubscriberAddress"/>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="removeRadioMemberEvent" type="typeGroupRemoveRadioMemberEvent"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupRemoveRadioMemberEvent">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType name="typeGroupRemoveRadioMemberEvent">
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="radio" type="typeSubscriberAddress"/>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>

@@ -10,16 +10,16 @@
   <xs:element name="call">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="select"/>
-        <xs:element ref="request"/>
-        <xs:element ref="pttRequest"/>
-        <xs:element ref="keyExchange"/>
+        <xs:element name="select" type="typeCallSelect"/>
+        <xs:element name="request" type="typeCallEvent"/>
+        <xs:element name="pttRequest" type="typeCallPTTRequest"/>
+        <xs:element name="keyExchange" type="typeCallKeyExchange"/>
         <xs:element name="response" type="typeResponse"/>
-        <xs:element ref="selectEvent"/>
-        <xs:element ref="event"/>
-        <xs:element ref="pttEvent"/>
-        <xs:element ref="unitInEmergencyEvent"/>
-        <xs:element ref="keyExchangeEvent"/>
+        <xs:element name="selectEvent" type="typeCallSelectEvent"/>
+        <xs:element name="event" type="typeCallEvent"/>
+        <xs:element name="pttEvent" type="typeCallPTTEvent"/>
+        <xs:element name="unitInEmergencyEvent" type="typeCallUnitInEmergencyEvent"/>
+        <xs:element name="keyExchangeEvent" type="typeCallKeyExchangeEvent"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>

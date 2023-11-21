@@ -4,14 +4,12 @@
   <xs:include schemaLocation="DR-GW-Session.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="login" type="typeSessionLogin"/>
-  <!-- *************************************************************** -->
     <xs:complexType name="typeSessionLogin">
       <xs:annotation>
         <xs:documentation>Login procedure. The username, password and the complete
-      authentication is done using mechanisms of the transport protocol.
-      Digest access authentication on HTTP or SIP digest authentication on SIP.
-      Both are principialy same.</xs:documentation>
+          authentication is done using mechanisms of the transport protocol,
+          digest access authentication on HTTP.
+        </xs:documentation>
       </xs:annotation>
       <xs:complexContent>
         <xs:extension base="typeRequest">
@@ -24,9 +22,11 @@
       </xs:complexContent>
     </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="loginEvent" type="typeSessionLoginEvent"/>
-  <!-- *************************************************************** -->
     <xs:complexType name="typeSessionLoginEvent">
+      <xs:annotation>
+        <xs:documentation>
+        </xs:documentation>
+      </xs:annotation>
       <xs:complexContent>
         <xs:extension base="typeEvent">
           <xs:sequence>

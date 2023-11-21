@@ -1,37 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Group.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="subscribeData" type="typeGroupSubscribeData"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupSubscribeData">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType name="typeGroupSubscribeData">
-      <xs:complexContent>
-        <xs:extension base="typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="typeGroupDataSubscription" maxOccurs="unbounded"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="group" type="typeGroupDataSubscription" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="subscribeDataEvent" type="typeGroupSubscribeDataEvent"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupSubscribeDataEvent">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType name="typeGroupSubscribeDataEvent">
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="group" type="typeGroupDataSubscription"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="group" type="typeGroupDataSubscription"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>

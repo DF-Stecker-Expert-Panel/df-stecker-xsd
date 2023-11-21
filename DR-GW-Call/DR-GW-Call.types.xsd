@@ -308,7 +308,7 @@
       <xs:enumeration value="bcast"/>
     </xs:restriction>
   </xs:simpleType>
-  <!-- *************************************************************** -->
+  <!-- *************************************************************** -->  
   <xs:simpleType name="typeTxDemandPriority">
     <xs:annotation>
       <xs:documentation>Defines priority of speech item request: normal, pre-emptive, or emergency.
@@ -433,4 +433,5 @@
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
+
 

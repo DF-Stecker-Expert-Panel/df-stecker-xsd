@@ -5,8 +5,6 @@
   <xs:include schemaLocation="DR-GW-Radio.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="getList" type="typeRadioGetList"/>
-  <!-- *************************************************************** -->
     <xs:complexType name="typeRadioGetList">
       <xs:complexContent>
         <xs:extension base="typeRequest">
@@ -16,8 +14,6 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  <!-- *************************************************************** -->
-  <xs:element name="getListEvent" type="typeRadioGetListEvent"/>
   <!-- *************************************************************** -->
     <xs:complexType name="typeRadioGetListEvent">
       <xs:complexContent>
@@ -31,3 +27,4 @@
     </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
+

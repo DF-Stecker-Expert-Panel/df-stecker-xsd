@@ -4,8 +4,6 @@
   <xs:include schemaLocation="DR-GW-Radio.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="track" type="typeRadioTrack"/>
-  <!-- *************************************************************** -->
     <xs:complexType name="typeRadioTrack">
       <xs:complexContent>
         <xs:extension base="typeRequest">
@@ -16,8 +14,6 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  <!-- *************************************************************** -->
-  <xs:element name="trackSubscriptionEvent" type="typeRadioTrackSubscriptionEvent"/>
   <!-- *************************************************************** -->
     <xs:complexType name="typeRadioTrackSubscriptionEvent">
       <xs:complexContent>
@@ -30,8 +26,6 @@
       </xs:complexContent>
     </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="trackEvent" type="typeRadioTrackEvent"/>
-  <!-- *************************************************************** -->
     <xs:complexType name="typeRadioTrackEvent">
       <xs:complexContent>
         <xs:extension base="typeEvent">
@@ -41,8 +35,6 @@
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
-  <!-- *************************************************************** -->
-  <xs:element name="groupsEvent" type="typeRadioGroupsEvent"/>
   <!-- *************************************************************** -->
     <xs:complexType name="typeRadioGroupsEvent">
       <xs:complexContent>
@@ -59,3 +51,4 @@
     </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
+

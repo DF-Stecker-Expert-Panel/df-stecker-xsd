@@ -1,40 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="addCombination" type="typeGroupAddCombination"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupAddCombination">
     <xs:annotation>
       <xs:documentation>Requests the addition of a group to a combined group.
       </xs:documentation>
     </xs:annotation>
-    <xs:complexType name="typeGroupAddCombination">
-      <xs:complexContent>
-        <xs:extension base="typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-            <xs:element name="baseGroup" type="typeSubscriberAddress"/>
-            <xs:element name="force" type="xs:boolean" minOccurs="0" default="true"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+          <xs:element name="baseGroup" type="typeSubscriberAddress"/>
+          <xs:element name="force" type="xs:boolean" minOccurs="0" default="true"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="addCombinationEvent" type="typeGroupAddCombinationEvent"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupAddCombinationEvent">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType name="typeGroupAddCombinationEvent">
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-            <xs:element name="baseGroup" type="typeSubscriberAddress"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+          <xs:element name="baseGroup" type="typeSubscriberAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>

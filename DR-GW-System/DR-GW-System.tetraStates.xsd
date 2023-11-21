@@ -4,8 +4,6 @@
   <xs:include schemaLocation="DR-GW-System.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="tetraStatesEvent" type="typeSystemTetraStatesEvent"/>
-  <!-- *************************************************************** -->
   <xs:complexType name="typeSystemTetraStatesEvent">
     <xs:annotation>
       <xs:documentation>Indication of the subsystem state updates.
@@ -25,3 +23,4 @@
   </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
+

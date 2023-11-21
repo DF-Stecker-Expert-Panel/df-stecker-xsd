@@ -13,6 +13,7 @@
       <xs:element name="result" type="xs:unsignedLong" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
+  <!-- *********************************************************************** -->  
   <xs:simpleType name="typeResponseCode">
     <xs:restriction base="xs:normalizedString">
       <xs:enumeration value="success"/>
@@ -23,6 +24,7 @@
       <xs:enumeration value="subscription_failed"/>
     </xs:restriction>
   </xs:simpleType>
+  <!-- *********************************************************************** -->  
   <xs:simpleType name="typeSourceSystem">
     <xs:restriction base="xs:normalizedString">
       <xs:enumeration value="DR-GW"/>
@@ -147,5 +149,3 @@
     </xs:annotation>
   </xs:complexType>
 </xs:schema>
-
-

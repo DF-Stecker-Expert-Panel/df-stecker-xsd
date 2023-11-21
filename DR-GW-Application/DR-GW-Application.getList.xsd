@@ -5,35 +5,31 @@
   <xs:include schemaLocation="DR-GW-Application.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *********************************************************************** -->
-  <xs:element name="getList" type="typeAppGetList"/>
+  <xs:complexType name="typeAppGetList">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="orgblockId" type="typeOrganisationBlockId" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *********************************************************************** -->
-    <xs:complexType name="typeAppGetList">
-      <xs:annotation>
-        <xs:documentation/>
-      </xs:annotation>
-      <xs:complexContent>
-        <xs:extension base="typeRequest">
-          <xs:sequence>
-            <xs:element name="orgblockId" type="typeOrganisationBlockId" minOccurs="0"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  <!-- *********************************************************************** -->
-  <xs:element name="getListEvent" type="typeAppGetListEvent"/>
-  <!-- *********************************************************************** -->
-    <xs:complexType name="typeAppGetListEvent">
-      <xs:annotation>
-        <xs:documentation/>
-      </xs:annotation>
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="app" type="typeApplication" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element name="listEnd" type="xs:boolean" minOccurs="0"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+  <xs:complexType name="typeAppGetListEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="app" type="typeApplication" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="listEnd" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *********************************************************************** -->
 </xs:schema>

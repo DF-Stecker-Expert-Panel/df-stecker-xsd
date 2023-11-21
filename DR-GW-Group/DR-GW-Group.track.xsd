@@ -1,92 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Group.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="track" type="typeGroupTrack"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupTrack">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType name="typeGroupTrack">
-      <xs:complexContent>
-        <xs:extension base="typeRequest">
-          <xs:sequence>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-            <xs:element name="mask" type="typeGroupTrackingMask"/>
-            <xs:element name="stop" type="xs:boolean"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+          <xs:element name="mask" type="typeGroupTrackingMask"/>
+          <xs:element name="stop" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="trackSubscriptionEvent" type="typeGroupTrackSubscriptionEvent"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupTrackSubscriptionEvent">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType name="typeGroupTrackSubscriptionEvent">
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-            <xs:element name="mask" type="typeGroupTrackingMask"/>
-            <xs:element name="stop" type="xs:boolean"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+          <xs:element name="mask" type="typeGroupTrackingMask"/>
+          <xs:element name="stop" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="radioMemberEvent" type="typeGroupRadioMemberEvent"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupRadioMemberEvent">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType name="typeGroupRadioMemberEvent">
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-            <xs:element name="radio" type="typeSubscriberAddress"/>
-            <xs:element name="delete" type="xs:boolean"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+          <xs:element name="radio" type="typeSubscriberAddress"/>
+          <xs:element name="delete" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="appMemberEvent" type="typeGroupAppMemberEvent"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupAppMemberEvent">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType name="typeGroupAppMemberEvent">
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="group" type="typeGroup"/>
-            <xs:element name="app" type="typeSubscriberAddress"/>
-            <xs:element name="delete" type="xs:boolean"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="group" type="typeGroup"/>
+          <xs:element name="app" type="typeSubscriberAddress"/>
+          <xs:element name="delete" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="combinationEvent" type="typeGroupCombinationEvent"/>
-  <!-- *************************************************************** -->
+  <xs:complexType name="typeGroupCombinationEvent">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:complexType name="typeGroupCombinationEvent">
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="group" type="typeSubscriberAddress"/>
-            <xs:element name="baseGroup" type="typeSubscriberAddress"/>
-            <xs:element name="constitGroup" type="typeSubscriberAddress" minOccurs="0" maxOccurs="7"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="group" type="typeSubscriberAddress"/>
+          <xs:element name="baseGroup" type="typeSubscriberAddress"/>
+          <xs:element name="constitGroup" type="typeSubscriberAddress" minOccurs="0" maxOccurs="7"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>

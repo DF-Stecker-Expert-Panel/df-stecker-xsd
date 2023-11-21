@@ -8,10 +8,11 @@
   <xs:element name="system">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="tetraStatesEvent"/>
-        <xs:element ref="logEvent"/>
-        <xs:element ref="event"/>
+        <xs:element name="tetraStatesEvent" type="typeSystemTetraStatesEvent"/>
+        <xs:element name="logEvent" type="typeSystemLogEvent"/>
+        <xs:element name="event" type="typeSystemEvent"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>
 </xs:schema>
+

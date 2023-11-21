@@ -9,12 +9,12 @@
   <xs:element name="org">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="get"/>
-        <xs:element ref="getList"/>
+        <xs:element name="get" type="typeOrgGet"/>
+        <xs:element name="getList" type="typeOrgGetList"/>
         <xs:element name="response" type="typeResponse"/>
-        <xs:element ref="getEvent"/>
-        <xs:element ref="getListEvent"/>
-        <xs:element ref="event"/>
+        <xs:element name="getEvent" type="typeOrgGetEvent"/>
+        <xs:element name="getListEvent" type="typeOrgGetListEvent"/>
+        <xs:element name="event" type="typeOrgEvent"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>

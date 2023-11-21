@@ -4,8 +4,6 @@
   <xs:include schemaLocation="DR-GW-System.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="logEvent" type="typeSystemLogEvent"/>
-  <!-- *************************************************************** -->
   <xs:complexType name="typeSystemLogEvent">
     <xs:annotation>
       <xs:documentation>Transmitts additional information (errors, notices)
@@ -23,3 +21,4 @@
   </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
+

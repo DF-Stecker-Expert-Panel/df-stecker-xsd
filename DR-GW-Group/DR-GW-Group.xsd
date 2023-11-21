@@ -18,32 +18,32 @@
   <xs:element name="group">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="get"/>
-        <xs:element ref="getList"/>
-        <xs:element ref="getRadioMembers"/>
-        <xs:element ref="getAppMembers"/>
-        <xs:element ref="getCombinations"/>
-        <xs:element ref="track"/>
-        <xs:element ref="addRadioMember"/>
-        <xs:element ref="removeRadioMember"/>
-        <xs:element ref="addCombination"/>
-        <xs:element ref="removeCombination"/>
-        <xs:element ref="subscribeData"/>
+        <xs:element name="get" type="typeGroupGet"/>
+        <xs:element name="getList" type="typeGroupGetList"/>
+        <xs:element name="getRadioMembers" type="typeGroupGetRadioMembers"/>
+        <xs:element name="getAppMembers" type="typeGroupGetAppMembers"/>
+        <xs:element name="getCombinations" type="typeGroupGetCombinations"/>
+        <xs:element name="track" type="typeGroupTrack"/>
+        <xs:element name="addRadioMember" type="typeGroupAddRadioMember"/>
+        <xs:element name="removeRadioMember" type="typeGroupRemoveRadioMember"/>
+        <xs:element name="addCombination" type="typeGroupAddCombination"/>
+        <xs:element name="removeCombination" type="typeGroupRemoveCombination"/>
+        <xs:element name="subscribeData" type="typeGroupSubscribeData"/>
         <xs:element name="response" type="typeResponse"/>
-        <xs:element ref="getEvent"/>
-        <xs:element ref="getListEvent"/>
-        <xs:element ref="getRadioMembersEvent"/>
-        <xs:element ref="getAppMembersEvent"/>
-        <xs:element ref="trackSubscriptionEvent"/>
-        <xs:element ref="radioMemberEvent"/>
-        <xs:element ref="appMemberEvent"/>
-        <xs:element ref="combinationEvent"/>
-        <xs:element ref="addRadioMemberEvent"/>
-        <xs:element ref="removeRadioMemberEvent"/>
-        <xs:element ref="addCombinationEvent"/>
-        <xs:element ref="removeCombinationEvent"/>
-        <xs:element ref="subscribeDataEvent"/>
-        <xs:element ref="event"/>
+        <xs:element name="getEvent" type="typeGroupGetEvent"/>
+        <xs:element name="getListEvent" type="typeGroupGetListEvent"/>
+        <xs:element name="getRadioMembersEvent" type="typeGroupGetRadioMembersEvent"/>
+        <xs:element name="getAppMembersEvent" type="typeGroupGetAppMembersEvent"/>
+        <xs:element name="trackSubscriptionEvent" type="typeGroupTrackSubscriptionEvent"/>
+        <xs:element name="radioMemberEvent" type="typeGroupRadioMemberEvent"/>
+        <xs:element name="appMemberEvent" type="typeGroupAppMemberEvent"/>
+        <xs:element name="combinationEvent" type="typeGroupCombinationEvent"/>
+        <xs:element name="addRadioMemberEvent" type="typeGroupAddRadioMemberEvent"/>
+        <xs:element name="removeRadioMemberEvent" type="typeGroupRemoveRadioMemberEvent"/>
+        <xs:element name="addCombinationEvent" type="typeGroupAddCombinationEvent"/>
+        <xs:element name="removeCombinationEvent" type="typeGroupRemoveCombinationEvent"/>
+        <xs:element name="subscribeDataEvent" type="typeGroupSubscribeDataEvent"/>
+        <xs:element name="event" type="typeGroupEvent"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>

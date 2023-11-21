@@ -13,24 +13,25 @@
   <xs:element name="radio">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="get"/>
-        <xs:element ref="getList"/>
-        <xs:element ref="getGroups"/>
-        <xs:element ref="track"/>
-        <xs:element ref="changeOpta"/>
-        <xs:element ref="enable"/>
-        <xs:element ref="disable"/>
+        <xs:element name="get" type="typeRadioGet"/>
+        <xs:element name="getList" type="typeRadioGetList"/>
+        <xs:element name="getGroups" type="typeRadioGetGroups"/>
+        <xs:element name="track" type="typeRadioTrack"/>
+        <xs:element name="changeOpta" type="typeRadioChangeOpta"/>
+        <xs:element name="enable" type="typeRadioEnable"/>
+        <xs:element name="disable" type="typeRadioDisable"/>
         <xs:element name="response" type="typeResponse"/>
-        <xs:element ref="getEvent"/>
-        <xs:element ref="getListEvent"/>
-        <xs:element ref="getGroupsEvent"/>
-        <xs:element ref="trackSubscriptionEvent"/>
-        <xs:element ref="trackEvent"/>
-        <xs:element ref="groupsEvent"/>
-        <xs:element ref="changeOptaEvent"/>
-        <xs:element ref="enableDisableEvent"/>
-        <xs:element ref="event"/>
+        <xs:element name="getEvent" type="typeRadioGetEvent"/>
+        <xs:element name="getListEvent" type="typeRadioGetListEvent"/>
+        <xs:element name="getGroupsEvent" type="typeRadioGetGroupsEvent"/>
+        <xs:element name="trackSubscriptionEvent" type="typeRadioTrackSubscriptionEvent"/>
+        <xs:element name="trackEvent" type="typeRadioTrackEvent"/>
+        <xs:element name="groupsEvent" type="typeRadioGroupsEvent"/>
+        <xs:element name="changeOptaEvent" type="typeRadioChangeOptaEvent"/>
+        <xs:element name="enableDisableEvent" type="typeRadioEnableDisableEvent"/>
+        <xs:element name="event" type="typeRadioEvent"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>
 </xs:schema>
+

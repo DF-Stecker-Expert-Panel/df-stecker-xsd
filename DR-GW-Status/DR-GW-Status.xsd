@@ -7,10 +7,10 @@
   <xs:element name="status">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="send"/>
+        <xs:element name="send" type="typeStatusSend"/>
         <xs:element name="response" type="typeResponse"/>
-        <xs:element ref="sendEvent"/>
-        <xs:element ref="receiveEvent"/>
+        <xs:element name="sendEvent" type="typeStatusSendEvent"/>
+        <xs:element name="receiveEvent" type="typeStatusReceiveEvent"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>

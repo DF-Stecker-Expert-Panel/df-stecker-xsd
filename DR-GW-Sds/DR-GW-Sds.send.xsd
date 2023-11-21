@@ -1,51 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Sds.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="send" type="typeSdsSend"/>
   <!-- *************************************************************** -->
-    <xs:complexType name="typeSdsSend">
-      <xs:complexContent>
-        <xs:extension base="typeRequest">
-          <xs:sequence>
-            <xs:element name="sds" type="typeSds"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+  <xs:complexType name="typeSdsSend">
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="sds" type="typeSds"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="sendEvent" type="typeSdsSendEvent"/>
   <!-- *************************************************************** -->
-    <xs:complexType name="typeSdsSendEvent">
-      <xs:annotation>
-        <xs:documentation>An message reference is returned in the response for
+  <xs:complexType name="typeSdsSendEvent">
+    <xs:annotation>
+      <xs:documentation>An message reference is returned in the response for
         later message identification in case delivery and/or consume requests
         were asked. Is only valid for SDS-TL.</xs:documentation>
-      </xs:annotation>
-      <xs:complexContent>
-        <xs:extension base="typeEvent">
-          <xs:sequence>
-            <xs:element name="msgRef" type="xs:unsignedByte" minOccurs="0" default="0"/>
-            <xs:element name="sds" type="typeSds"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="typeEvent">
+        <xs:sequence>
+          <xs:element name="msgRef" type="xs:unsignedByte" minOccurs="0" default="0"/>
+          <xs:element name="sds" type="typeSds"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
-  <xs:element name="sendReport" type="typeSdsSendReport"/>
   <!-- *************************************************************** -->
-    <xs:complexType name="typeSdsSendReport">
-      <xs:complexContent>
-        <xs:extension base="typeRequest">
-          <xs:sequence>
-            <xs:element name="target" type="typeAddress"/>
-            <xs:element name="msgRef" type="xs:unsignedByte"/>
-            <xs:element name="deliveryStatus" type="xs:unsignedByte"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
+  <xs:complexType name="typeSdsSendReport">
+    <xs:complexContent>
+      <xs:extension base="typeRequest">
+        <xs:sequence>
+          <xs:element name="target" type="typeAddress"/>
+          <xs:element name="msgRef" type="xs:unsignedByte"/>
+          <xs:element name="deliveryStatus" type="xs:unsignedByte"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>

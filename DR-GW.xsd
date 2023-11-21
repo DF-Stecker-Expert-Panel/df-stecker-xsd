@@ -11,7 +11,7 @@
   <xs:include schemaLocation="DR-GW-Application/DR-GW-Application.xsd"/>
   <xs:include schemaLocation="DR-GW-System/DR-GW-System.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="dr-gw">
+  <xs:element name="drgw">
     <xs:complexType>
       <xs:choice>
         <xs:element ref="call"/>

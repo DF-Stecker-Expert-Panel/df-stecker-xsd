@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.types.xsd"/>
   <xs:include schemaLocation="../DR-GW-Group/DR-GW-Group.types.xsd"/>
+  <xs:include schemaLocation="../DR-GW-Call/DR-GW-Call.types.xsd"/>  
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
   <xs:complexType name="typeRadio">
@@ -16,7 +18,7 @@
       <xs:element name="opta" type="typeLastKnownOPTA" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeRadioGroupSelection">
     <xs:annotation>
       <xs:documentation/>
@@ -26,7 +28,7 @@
       <xs:element name="level" type="typeGroupSelectionLevel"/>
     </xs:sequence>
   </xs:complexType>
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeRadioTrackingData">
     <xs:annotation>
       <xs:documentation/>
@@ -46,7 +48,7 @@
     </xs:sequence>
   </xs:complexType>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeStatusIndicator">
     <xs:annotation>
       <xs:documentation/>
@@ -56,25 +58,14 @@
       <xs:element name="time" type="xs:dateTime"/>
     </xs:sequence>
   </xs:complexType>
-<!-- *********************************************************************** -->
-  <xs:simpleType name="typeCallType">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:restriction base="xs:normalizedString">
-      <xs:enumeration value="unknown"/>
-      <xs:enumeration value="no"/>
-      <xs:enumeration value="individual"/>
-    </xs:restriction>
-  </xs:simpleType>
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeLastKnownOPTA">
     <xs:sequence>
       <xs:element name="tstamp" type="xs:dateTime"/>
       <xs:element name="opta" type="typeOpta"/>
-     </xs:sequence>
+    </xs:sequence>
   </xs:complexType>
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:simpleType name="typeGroupSelectionLevel">
     <xs:annotation>
       <xs:documentation>Covers tcsScanningPriority_t of the TCS-API.</xs:documentation>
