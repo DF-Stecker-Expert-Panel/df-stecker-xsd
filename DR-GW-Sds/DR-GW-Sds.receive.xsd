@@ -5,11 +5,9 @@
   <xs:include schemaLocation="DR-GW-Sds.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <!-- *************************************************************** -->
   <xs:complexType name="typeSdsReceiveEvent">
     <xs:annotation>
-      <xs:documentation>ReceiveEvent is fired upon received SDS.
-      </xs:documentation>
+      <xs:documentation>ReceiveEvent is fired upon received SDS. </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="typeEvent">
@@ -20,11 +18,10 @@
     </xs:complexContent>
   </xs:complexType>
   <!-- *************************************************************** -->
-  <!-- *************************************************************** -->
   <xs:complexType name="typeSdsReportEvent">
     <xs:annotation>
-      <xs:documentation>ReportEvent is fired whenever the delivery or
-        consume report is received.</xs:documentation>
+      <xs:documentation>ReportEvent is fired whenever the delivery or consume report is
+        received.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="typeEvent">
