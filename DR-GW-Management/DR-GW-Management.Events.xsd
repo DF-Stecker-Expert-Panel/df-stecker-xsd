@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW-Interface/DR-GW-Management"
-  targetNamespace="DR-GW-Interface/DR-GW-Management" elementFormDefault="qualified"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW-Interface/DR-GW-Management.Events"
+  targetNamespace="DR-GW-Interface/DR-GW-Management.Events" elementFormDefault="qualified"
   attributeFormDefault="unqualified" xmlns:ctM="DR-GW-Interface/DR-GW-Management.CommonTypes"
   xmlns:ct="DR-GW-Interface/CommonTypes">
   <!-- *************************************************************** -->
