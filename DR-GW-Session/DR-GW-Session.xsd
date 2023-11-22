@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Session.check.xsd"/>
   <xs:include schemaLocation="DR-GW-Session.login.xsd"/>
   <xs:include schemaLocation="DR-GW-Session.supervise.xsd"/>
   <xs:include schemaLocation="DR-GW-Session.logout.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="session">
-    <xs:complexType>
-      <xs:choice>
-        <xs:element name="login" type="typeSessionLogin"/>
-        <xs:element name="logout" type="typeSessionLogout"/>
-        <xs:element name="supervise" type="typeSessionSupervise"/>
-        <xs:element name="check" type="typeSessionCheck"/>
-        <xs:element name="response" type="typeResponse"/>
-        <xs:element name="loginEvent" type="typeSessionLoginEvent"/>
-        <xs:element name="superviseEvent" type="typeSessionSuperviseEvent"/>
-      </xs:choice>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="interfaceSession">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Session. In order to use the rest of DR-GW interface the
+        DF-Client must establish a DR-GW session and maintain it using supervise in a timely manner.
+        Use only via SOAP.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="login" type="typeSessionLogin"/>
+      <xs:element name="logout" type="typeSessionLogout"/>
+      <xs:element name="supervise" type="typeSessionSupervise"/>
+      <xs:element name="check" type="typeSessionCheck"/>
+      <xs:element name="response" type="typeResponse"/>
+      <xs:element name="loginEvent" type="typeSessionLoginEvent"/>
+      <xs:element name="superviseEvent" type="typeSessionSuperviseEvent"/>
+    </xs:choice>
+  </xs:complexType>
 </xs:schema>
-

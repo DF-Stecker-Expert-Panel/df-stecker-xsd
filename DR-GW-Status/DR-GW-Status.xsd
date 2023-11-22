@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Status.send.xsd"/>
   <xs:include schemaLocation="DR-GW-Status.receive.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="status">
-    <xs:complexType>
-      <xs:choice>
-        <xs:element name="send" type="typeStatusSend"/>
-        <xs:element name="response" type="typeResponse"/>
-        <xs:element name="sendEvent" type="typeStatusSendEvent"/>
-        <xs:element name="receiveEvent" type="typeStatusReceiveEvent"/>
-      </xs:choice>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="interfaceStatus">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Status element. Use to send/receive status messages. Use only via
+        SOAP.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="send" type="typeStatusSend"/>
+      <xs:element name="response" type="typeResponse"/>
+      <xs:element name="sendEvent" type="typeStatusSendEvent"/>
+      <xs:element name="receiveEvent" type="typeStatusReceiveEvent"/>
+    </xs:choice>
+  </xs:complexType>
 </xs:schema>

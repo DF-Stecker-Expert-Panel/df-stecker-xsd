@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-OrganisationBlock.get.xsd"/>
   <xs:include schemaLocation="DR-GW-OrganisationBlock.getList.xsd"/>
   <xs:include schemaLocation="DR-GW-OrganisationBlock.event.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="org">
-    <xs:complexType>
-      <xs:choice>
-        <xs:element name="get" type="typeOrgGet"/>
-        <xs:element name="getList" type="typeOrgGetList"/>
-        <xs:element name="response" type="typeResponse"/>
-        <xs:element name="getEvent" type="typeOrgGetEvent"/>
-        <xs:element name="getListEvent" type="typeOrgGetListEvent"/>
-        <xs:element name="event" type="typeOrgEvent"/>
-      </xs:choice>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="interfaceOrg">
+    <xs:annotation>
+      <xs:documentation>DR-GW-OrganisationBlock element. Use to get information about certain
+        organization blocks or to read out the complete organization schema the DF-Client has rights
+        for. Use only via SOAP.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="get" type="typeOrgGet"/>
+      <xs:element name="getList" type="typeOrgGetList"/>
+      <xs:element name="response" type="typeResponse"/>
+      <xs:element name="getEvent" type="typeOrgGetEvent"/>
+      <xs:element name="getListEvent" type="typeOrgGetListEvent"/>
+      <xs:element name="event" type="typeOrgEvent"/>
+    </xs:choice>
+  </xs:complexType>
 </xs:schema>

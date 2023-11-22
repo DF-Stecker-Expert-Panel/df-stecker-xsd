@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Call.select.xsd"/>
   <xs:include schemaLocation="DR-GW-Call.call.xsd"/>
@@ -7,20 +8,23 @@
   <xs:include schemaLocation="DR-GW-Call.keyExchange.xsd"/>
   <xs:include schemaLocation="DR-GW-Call.unitInEmergency.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="call">
-    <xs:complexType>
-      <xs:choice>
-        <xs:element name="select" type="typeCallSelect"/>
-        <xs:element name="request" type="typeCallEvent"/>
-        <xs:element name="pttRequest" type="typeCallPTTRequest"/>
-        <xs:element name="keyExchange" type="typeCallKeyExchange"/>
-        <xs:element name="response" type="typeResponse"/>
-        <xs:element name="selectEvent" type="typeCallSelectEvent"/>
-        <xs:element name="event" type="typeCallEvent"/>
-        <xs:element name="pttEvent" type="typeCallPTTEvent"/>
-        <xs:element name="unitInEmergencyEvent" type="typeCallUnitInEmergencyEvent"/>
-        <xs:element name="keyExchangeEvent" type="typeCallKeyExchangeEvent"/>
-      </xs:choice>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="interfaceCall">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Call. Use for call control/ call monitoring. This is the only element,
+        that can be used via both SIP/SOAP. When used via SOAP it can only be used for call event
+        monitoring.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="select" type="typeCallSelect"/>
+      <xs:element name="request" type="typeCallEvent"/>
+      <xs:element name="pttRequest" type="typeCallPTTRequest"/>
+      <xs:element name="keyExchange" type="typeCallKeyExchange"/>
+      <xs:element name="response" type="typeResponse"/>
+      <xs:element name="selectEvent" type="typeCallSelectEvent"/>
+      <xs:element name="event" type="typeCallEvent"/>
+      <xs:element name="pttEvent" type="typeCallPTTEvent"/>
+      <xs:element name="unitInEmergencyEvent" type="typeCallUnitInEmergencyEvent"/>
+      <xs:element name="keyExchangeEvent" type="typeCallKeyExchangeEvent"/>
+    </xs:choice>
+  </xs:complexType>
 </xs:schema>

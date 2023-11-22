@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:simpleType name="typeSystemElementState">
     <xs:annotation>
-      <xs:documentation>Specifies connection, server or unit
-        state.</xs:documentation>
+      <xs:documentation>Specifies connection, server or unit state.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:normalizedString">
       <xs:enumeration value="unknown">
@@ -19,8 +19,7 @@
       </xs:enumeration>
       <xs:enumeration value="n_Ok">
         <xs:annotation>
-          <xs:documentation>Connection or server is not
-            working.</xs:documentation>
+          <xs:documentation>Connection or server is not working.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-System.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
   <xs:complexType name="typeSystemEvent">
     <xs:annotation>
-      <xs:documentation>Transmitts additional information (errors, notices)
-        in both numeric and textual form.
-      </xs:documentation>
+      <xs:documentation>DR-GW vendor-specific system information in both numeric and textual form.
+        See DR-GW vendor-specific documentation for the details.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="typeEvent">
@@ -21,4 +21,3 @@
   </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
-

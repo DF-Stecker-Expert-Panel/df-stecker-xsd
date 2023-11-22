@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Group.get.xsd"/>
   <xs:include schemaLocation="DR-GW-Group.getList.xsd"/>
@@ -15,36 +16,40 @@
   <xs:include schemaLocation="DR-GW-Group.event.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="group">
-    <xs:complexType>
-      <xs:choice>
-        <xs:element name="get" type="typeGroupGet"/>
-        <xs:element name="getList" type="typeGroupGetList"/>
-        <xs:element name="getRadioMembers" type="typeGroupGetRadioMembers"/>
-        <xs:element name="getAppMembers" type="typeGroupGetAppMembers"/>
-        <xs:element name="getCombinations" type="typeGroupGetCombinations"/>
-        <xs:element name="track" type="typeGroupTrack"/>
-        <xs:element name="addRadioMember" type="typeGroupAddRadioMember"/>
-        <xs:element name="removeRadioMember" type="typeGroupRemoveRadioMember"/>
-        <xs:element name="addCombination" type="typeGroupAddCombination"/>
-        <xs:element name="removeCombination" type="typeGroupRemoveCombination"/>
-        <xs:element name="subscribeData" type="typeGroupSubscribeData"/>
-        <xs:element name="response" type="typeResponse"/>
-        <xs:element name="getEvent" type="typeGroupGetEvent"/>
-        <xs:element name="getListEvent" type="typeGroupGetListEvent"/>
-        <xs:element name="getRadioMembersEvent" type="typeGroupGetRadioMembersEvent"/>
-        <xs:element name="getAppMembersEvent" type="typeGroupGetAppMembersEvent"/>
-        <xs:element name="trackSubscriptionEvent" type="typeGroupTrackSubscriptionEvent"/>
-        <xs:element name="radioMemberEvent" type="typeGroupRadioMemberEvent"/>
-        <xs:element name="appMemberEvent" type="typeGroupAppMemberEvent"/>
-        <xs:element name="combinationEvent" type="typeGroupCombinationEvent"/>
-        <xs:element name="addRadioMemberEvent" type="typeGroupAddRadioMemberEvent"/>
-        <xs:element name="removeRadioMemberEvent" type="typeGroupRemoveRadioMemberEvent"/>
-        <xs:element name="addCombinationEvent" type="typeGroupAddCombinationEvent"/>
-        <xs:element name="removeCombinationEvent" type="typeGroupRemoveCombinationEvent"/>
-        <xs:element name="subscribeDataEvent" type="typeGroupSubscribeDataEvent"/>
-        <xs:element name="event" type="typeGroupEvent"/>
-      </xs:choice>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="interfaceGroup">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Group. Use to get information about certain groups or to read out the
+        complete group list the DF-Client has rights for. There are also many other methods to
+        execute over a certain group. See each method description. Use only via
+        SOAP.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="get" type="typeGroupGet"/>
+      <xs:element name="getList" type="typeGroupGetList"/>
+      <xs:element name="getRadioMembers" type="typeGroupGetRadioMembers"/>
+      <xs:element name="getAppMembers" type="typeGroupGetAppMembers"/>
+      <xs:element name="getCombinations" type="typeGroupGetCombinations"/>
+      <xs:element name="track" type="typeGroupTrack"/>
+      <xs:element name="addRadioMember" type="typeGroupAddRadioMember"/>
+      <xs:element name="removeRadioMember" type="typeGroupRemoveRadioMember"/>
+      <xs:element name="addCombination" type="typeGroupAddCombination"/>
+      <xs:element name="removeCombination" type="typeGroupRemoveCombination"/>
+      <xs:element name="subscribeData" type="typeGroupSubscribeData"/>
+      <xs:element name="response" type="typeResponse"/>
+      <xs:element name="getEvent" type="typeGroupGetEvent"/>
+      <xs:element name="getListEvent" type="typeGroupGetListEvent"/>
+      <xs:element name="getRadioMembersEvent" type="typeGroupGetRadioMembersEvent"/>
+      <xs:element name="getAppMembersEvent" type="typeGroupGetAppMembersEvent"/>
+      <xs:element name="trackSubscriptionEvent" type="typeGroupTrackSubscriptionEvent"/>
+      <xs:element name="radioMemberEvent" type="typeGroupRadioMemberEvent"/>
+      <xs:element name="appMemberEvent" type="typeGroupAppMemberEvent"/>
+      <xs:element name="combinationEvent" type="typeGroupCombinationEvent"/>
+      <xs:element name="addRadioMemberEvent" type="typeGroupAddRadioMemberEvent"/>
+      <xs:element name="removeRadioMemberEvent" type="typeGroupRemoveRadioMemberEvent"/>
+      <xs:element name="addCombinationEvent" type="typeGroupAddCombinationEvent"/>
+      <xs:element name="removeCombinationEvent" type="typeGroupRemoveCombinationEvent"/>
+      <xs:element name="subscribeDataEvent" type="typeGroupSubscribeDataEvent"/>
+      <xs:element name="event" type="typeGroupEvent"/>
+    </xs:choice>
+  </xs:complexType>
 </xs:schema>

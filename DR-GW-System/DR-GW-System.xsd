@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-System.tetraStates.xsd"/>
   <xs:include schemaLocation="DR-GW-System.log.xsd"/>
   <xs:include schemaLocation="DR-GW-System.event.xsd"/>
   <!-- *************************************************************** -->
-  <xs:element name="system">
-    <xs:complexType>
-      <xs:choice>
-        <xs:element name="tetraStatesEvent" type="typeSystemTetraStatesEvent"/>
-        <xs:element name="logEvent" type="typeSystemLogEvent"/>
-        <xs:element name="event" type="typeSystemEvent"/>
-      </xs:choice>
-    </xs:complexType>
-  </xs:element>
-</xs:schema>
+  <xs:complexType name="interfaceSystem">
+    <xs:annotation>
+      <xs:documentation>DR-GW-System. Use to get TETRA system events or DR-GW
+        vendor-specific log and/or system events. Use only via SOAP.</xs:documentation>
+    </xs:annotation>
 
+    <xs:choice>
+      <xs:element name="response" type="typeResponse"/>
+      <xs:element name="tetraStatesEvent" type="typeSystemTetraStatesEvent"/>
+      <xs:element name="logEvent" type="typeSystemLogEvent"/>
+      <xs:element name="event" type="typeSystemEvent"/>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
+  <!-- *************************************************************** -->
+  <xs:include schemaLocation="DR-GW-Management.get.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="interfaceManagement">
+    <xs:annotation>
+      <xs:documentation>DR-GW-Management. Use for so called NEM-API(Tactilon-API) functions. Use
+        only via SOAP. </xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="get" type="typeManagementRequest"/>
+      <xs:element name="post" type="typeManagementRequest"/>      
+      <xs:element name="put" type="typeManagementRequest"/>      
+      <xs:element name="delete" type="typeManagementRequest"/>      
+      <xs:element name="response" type="typeResponse"/>
+      <xs:element name="getEvent" type="typeManagementEvent"/>      
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

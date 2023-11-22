@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Call/DR-GW-Call.xsd"/>
   <xs:include schemaLocation="DR-GW-Session/DR-GW-Session.xsd"/>
@@ -10,19 +11,25 @@
   <xs:include schemaLocation="DR-GW-Radio/DR-GW-Radio.xsd"/>
   <xs:include schemaLocation="DR-GW-Application/DR-GW-Application.xsd"/>
   <xs:include schemaLocation="DR-GW-System/DR-GW-System.xsd"/>
+  <xs:include schemaLocation="DR-GW-Management/DR-GW-Management.xsd"/>  
   <!-- *************************************************************** -->
   <xs:element name="drgw">
+    <xs:annotation>
+      <xs:documentation>Root DR-GW element. Elements underneath represent various DR-GW
+        interfaces.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="call"/>
-        <xs:element ref="session"/>
-        <xs:element ref="sds"/>
-        <xs:element ref="status"/>
-        <xs:element ref="org"/>
-        <xs:element ref="group"/>
-        <xs:element ref="radio"/>
-        <xs:element ref="app"/>
-        <xs:element ref="system"/>
+        <xs:element name="call" type="interfaceCall"/>
+        <xs:element name="session" type="interfaceSession"/>
+        <xs:element name="sds" type="interfaceSds"/>
+        <xs:element name="status" type="interfaceStatus"/>
+        <xs:element name="org" type="interfaceOrg"/>
+        <xs:element name="group" type="interfaceGroup"/>
+        <xs:element name="radio" type="interfaceRadio"/>
+        <xs:element name="app" type="interfaceApp"/>
+        <xs:element name="system" type="interfaceSystem"/>
+        <xs:element name="management" type="interfaceManagement"/>        
       </xs:choice>
       <xs:attribute name="version" fixed="2.0" use="required"/>
     </xs:complexType>
