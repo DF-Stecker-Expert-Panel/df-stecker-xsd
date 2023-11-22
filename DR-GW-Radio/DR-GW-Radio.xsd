@@ -9,7 +9,7 @@
            xmlns:ctR="DR-GW-Interface/DR-GW-Radio.CommonTypes"
            xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation>Version 1.1.1</xs:documentation>
+    <xs:documentation>Version 1.2</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes" schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.CommonTypes.xsd"/>
   <xs:import namespace="DR-GW-Interface/DR-GW-Group.CommonTypes" schemaLocation="../DR-GW-Group/DR-GW-Group.CommonTypes.xsd"/>

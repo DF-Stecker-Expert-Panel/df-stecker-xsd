@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW-Interface/DR-GW-Management"
+  targetNamespace="DR-GW-Interface/DR-GW-Management" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" xmlns:ctM="DR-GW-Interface/DR-GW-Management.CommonTypes"
+  xmlns:ct="DR-GW-Interface/CommonTypes">
+  <!-- *************************************************************** -->
+  <xs:annotation>
+    <xs:documentation>Version 1.2</xs:documentation>
+    <xs:documentation>DR-GW-Management. Use for so called NEM-API(Tactilon-API) functions. Use only
+      via SOAP. </xs:documentation>
+  </xs:annotation>
+  <!-- *************************************************************** -->
+  <xs:import namespace="DR-GW-Interface/DR-GW-Management.CommonTypes"
+    schemaLocation="DR-GW-Management.CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:element name="Management_Response" type="ct:typeResponse"/>
+  <xs:element name="Management_Event" type="ctM:typeManagementEvent"/>
+</xs:schema>
