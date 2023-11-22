@@ -7,7 +7,7 @@
            xmlns:ctS="DR-GW-Interface/DR-GW-Session.CommonTypes"
            xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation>Version 1.1.0</xs:documentation>
+    <xs:documentation>Version 1.1.1</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/DR-GW-Session.CommonTypes"
     schemaLocation="DR-GW-Session.CommonTypes.xsd"/>
@@ -83,42 +83,3 @@
     </xs:complexType>
   </xs:element>
 </xs:schema>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
