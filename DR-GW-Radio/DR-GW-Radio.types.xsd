@@ -60,6 +60,9 @@
   </xs:complexType>
   <!-- *********************************************************************** -->
   <xs:complexType name="typeLastKnownOPTA">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="tstamp" type="xs:dateTime"/>
       <xs:element name="opta" type="typeOpta"/>

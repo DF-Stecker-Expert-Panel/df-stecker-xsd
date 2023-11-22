@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="DR-GW-Group.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
@@ -38,7 +39,8 @@
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
-          <xs:documentation>TCS_GROUP_SUBSCRIPTION_MASK_VALUES_T_WSUSER_ADD_REMOVE_C </xs:documentation>
+          <xs:documentation>TCS_GROUP_SUBSCRIPTION_MASK_VALUES_T_WSUSER_ADD_REMOVE_C
+          </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
@@ -61,7 +63,8 @@
   <!-- *************************************************************** -->
   <xs:simpleType name="typeGroupTrackingMask">
     <xs:annotation>
-      <xs:documentation>Bit mask of one or more typeGroupTrackingMaskValues using bitwise OR.</xs:documentation>
+      <xs:documentation>Bit mask of one or more typeGroupTrackingMaskValues using bitwise
+        OR.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:unsignedShort"/>
   </xs:simpleType>
@@ -89,4 +92,3 @@
   </xs:complexType>
   <!-- *************************************************************** -->
 </xs:schema>
-

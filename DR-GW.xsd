@@ -11,7 +11,7 @@
   <xs:include schemaLocation="DR-GW-Radio/DR-GW-Radio.xsd"/>
   <xs:include schemaLocation="DR-GW-Application/DR-GW-Application.xsd"/>
   <xs:include schemaLocation="DR-GW-System/DR-GW-System.xsd"/>
-  <xs:include schemaLocation="DR-GW-Management/DR-GW-Management.xsd"/>  
+  <xs:include schemaLocation="DR-GW-Management/DR-GW-Management.xsd"/>
   <!-- *************************************************************** -->
   <xs:element name="drgw">
     <xs:annotation>
@@ -29,7 +29,7 @@
         <xs:element name="radio" type="interfaceRadio"/>
         <xs:element name="app" type="interfaceApp"/>
         <xs:element name="system" type="interfaceSystem"/>
-        <xs:element name="management" type="interfaceManagement"/>        
+        <xs:element name="management" type="interfaceManagement"/>
       </xs:choice>
       <xs:attribute name="version" fixed="2.0" use="required"/>
     </xs:complexType>
