@@ -11,11 +11,11 @@
     </xs:annotation>
     <xs:choice>
       <xs:element name="get" type="typeManagementRequest"/>
-      <xs:element name="post" type="typeManagementRequest"/>      
-      <xs:element name="put" type="typeManagementRequest"/>      
-      <xs:element name="delete" type="typeManagementRequest"/>      
+      <xs:element name="post" type="typeManagementRequest"/>
+      <xs:element name="put" type="typeManagementRequest"/>
+      <xs:element name="delete" type="typeManagementRequest"/>
       <xs:element name="response" type="typeResponse"/>
-      <xs:element name="getEvent" type="typeManagementEvent"/>      
+      <xs:element name="event" type="typeManagementEvent"/>
     </xs:choice>
   </xs:complexType>
 </xs:schema>

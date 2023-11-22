@@ -4,7 +4,7 @@
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.types.xsd"/>
   <xs:include schemaLocation="../DR-GW-Group/DR-GW-Group.types.xsd"/>
-  <xs:include schemaLocation="../DR-GW-Call/DR-GW-Call.types.xsd"/>  
+  <xs:include schemaLocation="../DR-GW-Call/DR-GW-Call.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
   <xs:complexType name="typeRadio">
@@ -13,8 +13,8 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="issi" type="typeSubscriberAddress"/>
-      <xs:element name="alias" type="xs:normalizedString"/>
-      <xs:element name="orgblockId" type="typeOrganisationBlockId"/>
+      <xs:element name="alias" type="xs:normalizedString" minOccurs="0"/>
+      <xs:element name="orgblockId" type="typeOrganisationBlockId" minOccurs="0"/>
       <xs:element name="opta" type="typeLastKnownOPTA" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>

@@ -5,8 +5,10 @@
   <xs:include schemaLocation="DR-GW-Sds.types.xsd"/>
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
-  <!-- *************************************************************** -->
   <xs:complexType name="typeSdsSend">
+    <xs:annotation>
+      <xs:documentation>This type is used to send SDS message.</xs:documentation>
+    </xs:annotation>
     <xs:complexContent>
       <xs:extension base="typeRequest">
         <xs:sequence>
@@ -16,12 +18,12 @@
     </xs:complexContent>
   </xs:complexType>
   <!-- *************************************************************** -->
-  <!-- *************************************************************** -->
   <xs:complexType name="typeSdsSendEvent">
     <xs:annotation>
-      <xs:documentation>An message reference is returned in the response for
-        later message identification in case delivery and/or consume requests
-        were asked. Is only valid for SDS-TL.</xs:documentation>
+      <xs:documentation>This type is used as a final response to previous send request and contains
+        final result if the message was sent or not. A message reference is returned in the response
+        for later message identification in case delivery and/or consume requests were asked. Is
+        valid only for SDS-TL.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="typeEvent">
@@ -33,8 +35,12 @@
     </xs:complexContent>
   </xs:complexType>
   <!-- *************************************************************** -->
-  <!-- *************************************************************** -->
   <xs:complexType name="typeSdsSendReport">
+    <xs:annotation>
+      <xs:documentation>An message reference is returned in the response for later message
+        identification in case delivery and/or consume requests were asked. Is only valid for
+        SDS-TL.</xs:documentation>
+    </xs:annotation>
     <xs:complexContent>
       <xs:extension base="typeRequest">
         <xs:sequence>

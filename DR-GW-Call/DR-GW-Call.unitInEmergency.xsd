@@ -22,7 +22,7 @@
       <xs:extension base="typeEvent">
         <xs:sequence>
           <xs:element name="group" type="typeSubscriberAddress"/>
-          <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="tetraCallId" type="typeTetraCallId" minOccurs="0"/>
           <xs:element name="unitInEmg" type="typeAddress"/>
           <xs:element name="unitInEmgType" type="typeUnitInEmergencyType"/>
           <xs:element name="emgInfo" type="typeEmergencyInfo"/>

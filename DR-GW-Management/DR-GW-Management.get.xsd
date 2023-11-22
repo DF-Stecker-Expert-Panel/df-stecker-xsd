@@ -43,7 +43,9 @@
   <!-- *************************************************************** -->
   <xs:complexType name="typeManagementEvent">
     <xs:annotation>
-      <xs:documentation/>
+      <xs:documentation> Generic management event, is fired from DR-GW as a final response to
+        previous get, post, put or delete request from Df-Client and contains the actual response
+        from Tactilon. </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="typeEvent">

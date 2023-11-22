@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW" elementFormDefault="qualified" attributeFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW" targetNamespace="DR-GW"
+  elementFormDefault="qualified" attributeFormDefault="qualified">
   <!-- *************************************************************** -->
   <xs:include schemaLocation="../Types/DR-GW.types.xsd"/>
   <!-- *************************************************************** -->
@@ -55,9 +56,8 @@
   <!-- *************************************************************** -->
   <xs:complexType name="typeSdsValidity">
     <xs:annotation>
-      <xs:documentation>Validity of the SDS in case store and forward center
-        is used. The unit is seconds. Infinte validity is
-        represented by 0xFFFFFFFF</xs:documentation>
+      <xs:documentation>Validity of the SDS in case store and forward center is used. The unit is
+        seconds. Infinte validity is represented by 0xFFFFFFFF</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="value" type="xs:unsignedLong"/>
@@ -66,14 +66,11 @@
   <!-- *************************************************************** -->
   <xs:complexType name="typeSdsData">
     <xs:annotation>
-      <xs:documentation>2 ways of encoding the SDS. When sent from DF-Client
-        to DF-Gateway at least one node must be present, otherwise it will be
-        discarded as not valid.
-        When sent from DF-Gateway to DF-Client both nodes must be present, as
-        it is unclear if the DF-Client supports the encoding inside raw
-        "hexdata", so the readable decoded content must be present to.
-        The default charset used within the "data" node is ISO-8859-15.
-      </xs:documentation>
+      <xs:documentation>2 ways of encoding the SDS. When sent from DF-Client to DF-Gateway at least
+        one node must be present, otherwise it will be discarded as not valid. When sent from
+        DF-Gateway to DF-Client both nodes must be present, as it is unclear if the DF-Client
+        supports the encoding inside raw "hexdata", so the readable decoded content must be present
+        to. The default charset used within the "data" node is ISO-8859-15. </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="data" type="xs:string" minOccurs="0"/>
@@ -94,6 +91,14 @@
       <xs:element name="sdsdata" type="typeSdsData"/>
       <xs:element name="source" type="typeAddress" minOccurs="0"/>
       <xs:element name="target" type="typeAddress"/>
+      <xs:element name="targetIsGroup" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation> Optionally, the DR-GW could provide information if the target represent
+            a group, by other words, the SDS is group-addressed. Also the Df-Client can provide this
+            information to help DR-GW decide which resource to use for actual
+            sending.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="forward" type="typeAddress" minOccurs="0"/>
       <xs:element name="validity" type="xs:unsignedByte" minOccurs="0"/>
       <xs:element name="tstamp" type="xs:dateTime" minOccurs="0"/>
@@ -102,4 +107,3 @@
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
-

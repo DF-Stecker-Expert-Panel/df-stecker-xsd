@@ -8,7 +8,7 @@
   <!-- *************************************************************** -->
   <xs:complexType name="interfaceSds">
     <xs:annotation>
-      <xs:documentation>DR-GW-Sds element. Use to send/receive SDS messages. Use only via
+      <xs:documentation>DR-GW-Sds. Use to send/receive SDS messages. Use only via
         SOAP.</xs:documentation>
     </xs:annotation>
     <xs:choice>

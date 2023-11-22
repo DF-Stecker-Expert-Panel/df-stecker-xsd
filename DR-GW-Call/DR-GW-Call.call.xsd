@@ -31,7 +31,7 @@
     <xs:complexContent>
       <xs:extension base="typeEvent">
         <xs:sequence>
-          <xs:element name="tetraCallId" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="tetraCallId" type="typeTetraCallId" minOccurs="0"/>
           <xs:element name="action" type="typeActionEvent"/>
           <xs:element name="attributes" type="typeCallAttributes" minOccurs="0"/>
           <xs:element name="callingParty" type="typeAddress" minOccurs="0"/>
