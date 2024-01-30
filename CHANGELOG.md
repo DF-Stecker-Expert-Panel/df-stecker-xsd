@@ -5,4 +5,5 @@ New:
 - new OPTIONAL element "targetIsGroup" in typeSds
 - make alias and orgBlockId OPTIONAL in typeRadio, because this type is used also in request, so the Df-Client doesn't have to know
 - change group element type in typeGroupAppMemberEvent to typeSubscriberAddress, to unify it with other group event types
+- replace import -> include in subsequent schema files
 - add root level element <drgw>
