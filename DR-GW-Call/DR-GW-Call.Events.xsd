@@ -7,11 +7,17 @@
            xmlns:ct="DR-GW-Interface/CommonTypes"
            xmlns:ctC="DR-GW-Interface/DR-GW-Call.CommonTypes">
   <xs:annotation>
-    <xs:documentation>Version 1.1.0</xs:documentation>
+    <xs:documentation>Version 1.1.1</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
   <xs:import namespace="DR-GW-Interface/DR-GW-Call.CommonTypes" schemaLocation="DR-GW-Call.CommonTypes.xsd"/>
-  
+  <!-- *********************************************************************** -->
+  <xs:element name="Call_Response" type="ct:typeResponse">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+  </xs:element>
+
 <!-- *********************************************************************** -->
   <xs:element name="Call_SelectEvent">
     <xs:annotation>
@@ -166,23 +172,3 @@ removed as CR-36 replaces it
     </xs:complexType>
   </xs:element>
 </xs:schema>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
