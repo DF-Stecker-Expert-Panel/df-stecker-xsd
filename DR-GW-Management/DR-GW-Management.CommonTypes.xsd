@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns="DR-GW-Interface/DR-GW-Management.CommonTypes"
+  targetNamespace="DR-GW-Interface/DR-GW-Management.CommonTypes" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" xmlns:ct="DR-GW-Interface/CommonTypes">
+  <!-- *************************************************************** -->
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeManagementRequest">
+    <xs:annotation>
+      <xs:documentation>Generic management request used for all GET, POST, PUT, DELETE operations.
+        <!-- https://<Tactilon_host>/<requestUri>" -->
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ct:typeRequest">
+        <xs:sequence>
+          <xs:element name="requestUri" type="xs:string"/>
+          <xs:element name="body" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Some management requests, typically PUT and POST require the
+                presence of the body. See Tactilon-API specification for details on how to construct
+                the body. </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="authorization" type="typeManagementAuthorization" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation> Optionally, Df-Client can provide his own authorization credentials
+                to access Tactilon. If not provided, the DR-GW shall use its own, globally
+                configured. </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="host" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation> Optionally, Df-Client can provide different host/ip address of the
+                Tactilon. If not provided, the DR-GW shall use its own, globally configured.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeManagementAuthorization">
+    <xs:annotation>
+      <xs:documentation> </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="username" type="xs:string"/>
+      <xs:element name="password" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeManagementEvent">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ct:typeEvent">
+        <xs:sequence>
+          <xs:element name="body" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- *************************************************************** -->
+</xs:schema>
