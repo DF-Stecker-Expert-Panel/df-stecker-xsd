@@ -21,8 +21,8 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="issi" type="ct:typeSubscriberAddress"/>
-      <xs:element name="alias" type="xs:normalizedString"/>
-      <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId"/>
+      <xs:element name="alias" type="xs:normalizedString" minOccurs="0"/>
+      <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId" minOccurs="0"/>
       <xs:element name="opta" type="typeLastKnownOPTA" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>

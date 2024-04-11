@@ -136,7 +136,7 @@
       <xs:complexContent>
         <xs:extension base="ct:typeEvent">
           <xs:sequence>
-            <xs:element name="group" type="ctG:typeGroup"/>
+            <xs:element name="group" type="ct:typeSubscriberAddress"/>
             <xs:element name="app" type="ct:typeSubscriberAddress"/>
             <xs:element name="delete" type="xs:boolean"/>
           </xs:sequence>
