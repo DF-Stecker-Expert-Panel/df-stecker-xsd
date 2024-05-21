@@ -1,23 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-Group"
-           targetNamespace="DR-GW-Interface/DR-GW-Group"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
-           xmlns:ctG="DR-GW-Interface/DR-GW-Group.CommonTypes"
-           xmlns:ct="DR-GW-Interface/CommonTypes">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW-Interface/DR-GW-Group"
+  targetNamespace="DR-GW-Interface/DR-GW-Group" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
+  xmlns:ctG="DR-GW-Interface/DR-GW-Group.CommonTypes" xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation>Version 1.1.1</xs:documentation>
+    <xs:documentation>Version 1.2</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
     schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.CommonTypes.xsd"/>
   <xs:import namespace="DR-GW-Interface/DR-GW-Group.CommonTypes"
     schemaLocation="DR-GW-Group.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/CommonTypes"
-    schemaLocation="../Types/CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_Get">
     <xs:annotation>
       <xs:documentation/>
@@ -33,7 +28,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_GetList">
     <xs:annotation>
       <xs:documentation/>
@@ -42,15 +37,14 @@
       <xs:complexContent>
         <xs:extension base="ct:typeRequest">
           <xs:sequence>
-            <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId"
-              minOccurs="0"/>
+            <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId" minOccurs="0"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_GetRadioMembers">
     <xs:annotation>
       <xs:documentation/>
@@ -66,7 +60,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_GetAppMembers">
     <xs:annotation>
       <xs:documentation/>
@@ -82,7 +76,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_Track">
     <xs:annotation>
       <xs:documentation/>
@@ -100,11 +94,11 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_AddRadioMember">
     <xs:annotation>
-      <xs:documentation>Requests the addition of a radio subscriber to a group.
-        This might cause DGNA operation in the air interface.</xs:documentation>
+      <xs:documentation>Requests the addition of a radio subscriber to a group. This might cause
+        DGNA operation in the air interface.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:complexContent>
@@ -112,19 +106,18 @@
           <xs:sequence>
             <xs:element name="radio" type="ct:typeSubscriberAddress"/>
             <xs:element name="group" type="ct:typeSubscriberAddress"/>
-            <xs:element name="membership" type="ctG:typeMembershipType"
-              minOccurs="0"/>
+            <xs:element name="membership" type="ctG:typeMembershipType" minOccurs="0"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_RemoveRadioMember">
     <xs:annotation>
-      <xs:documentation>Requests removing a radio subscriber from a group.
-        This might cause DGNA operation in the air interface.</xs:documentation>
+      <xs:documentation>Requests removing a radio subscriber from a group. This might cause DGNA
+        operation in the air interface.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:complexContent>
@@ -138,11 +131,11 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_GetCombinations">
     <xs:annotation>
-      <xs:documentation>The method requests the groups that belong to the same
-        combined group as the group specified.</xs:documentation>
+      <xs:documentation>The method requests the groups that belong to the same combined group as the
+        group specified.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:complexContent>
@@ -155,11 +148,10 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_AddCombination">
     <xs:annotation>
-      <xs:documentation>Requests the addition of a group to a combined group.
-      </xs:documentation>
+      <xs:documentation>Requests the addition of a group to a combined group. </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:complexContent>
@@ -167,19 +159,17 @@
           <xs:sequence>
             <xs:element name="group" type="ct:typeSubscriberAddress"/>
             <xs:element name="baseGroup" type="ct:typeSubscriberAddress"/>
-            <xs:element name="force" type="xs:boolean" minOccurs="0"
-              default="true"/>
+            <xs:element name="force" type="xs:boolean" minOccurs="0" default="true"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_RemoveCombination">
     <xs:annotation>
-      <xs:documentation>Requests removing a group from a combined group.
-      </xs:documentation>
+      <xs:documentation>Requests removing a group from a combined group. </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:complexContent>
@@ -192,8 +182,8 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:element name="Group_SubscribeData">
     <xs:annotation>
       <xs:documentation/>
@@ -202,8 +192,7 @@
       <xs:complexContent>
         <xs:extension base="ct:typeRequest">
           <xs:sequence>
-            <xs:element name="group" type="ctG:typeGroupSubscribeData"
-              maxOccurs="unbounded"/>
+            <xs:element name="group" type="ctG:typeGroupSubscribeData" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>

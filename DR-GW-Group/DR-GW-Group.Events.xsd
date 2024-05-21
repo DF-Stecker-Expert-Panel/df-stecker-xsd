@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-Group.Events"
-           targetNamespace="DR-GW-Interface/DR-GW-Group.Events"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:ctG="DR-GW-Interface/DR-GW-Group.CommonTypes"
-           xmlns:ct="DR-GW-Interface/CommonTypes">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW-Interface/DR-GW-Group.Events"
+  targetNamespace="DR-GW-Interface/DR-GW-Group.Events" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" xmlns:ctG="DR-GW-Interface/DR-GW-Group.CommonTypes"
+  xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation>Version 1.1.1</xs:documentation>
+    <xs:documentation>Version 1.2</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/DR-GW-Group.CommonTypes"
     schemaLocation="DR-GW-Group.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/CommonTypes"
-    schemaLocation="../Types/CommonTypes.xsd"/>
-  
-<!-- *********************************************************************** -->
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
+
+  <!-- *********************************************************************** -->
   <xs:element name="Group_Response" type="ct:typeResponse">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_GetEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -37,7 +33,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_GetListEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -46,8 +42,7 @@
       <xs:complexContent>
         <xs:extension base="ct:typeEvent">
           <xs:sequence>
-            <xs:element name="group" type="ctG:typeGroup" minOccurs="0"
-              maxOccurs="unbounded"/>
+            <xs:element name="group" type="ctG:typeGroup" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="listEnd" type="xs:boolean"/>
           </xs:sequence>
         </xs:extension>
@@ -55,7 +50,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_GetRadioMembersEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -65,8 +60,8 @@
         <xs:extension base="ct:typeEvent">
           <xs:sequence>
             <xs:element name="group" type="ct:typeSubscriberAddress"/>
-            <xs:element name="radio" type="ct:typeSubscriberAddress"
-              minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="radio" type="ct:typeSubscriberAddress" minOccurs="0"
+              maxOccurs="unbounded"/>
             <xs:element name="listEnd" type="xs:boolean"/>
           </xs:sequence>
         </xs:extension>
@@ -74,7 +69,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_GetAppMembersEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -92,7 +87,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_Event">
     <xs:annotation>
       <xs:documentation/>
@@ -109,7 +104,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_RadioMemberEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -127,7 +122,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_AppMemberEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -145,7 +140,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_GetCombinationsEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -157,8 +152,7 @@
             <xs:element name="group" type="ct:typeSubscriberAddress"/>
             <xs:sequence minOccurs="0">
               <xs:element name="baseGroup" type="ct:typeSubscriberAddress"/>
-              <xs:element name="constitGroup" type="ct:typeSubscriberAddress"
-                maxOccurs="7"/>
+              <xs:element name="constitGroup" type="ct:typeSubscriberAddress" maxOccurs="7"/>
             </xs:sequence>
           </xs:sequence>
         </xs:extension>
@@ -166,7 +160,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_CombinationEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -177,15 +171,15 @@
           <xs:sequence>
             <xs:element name="group" type="ct:typeSubscriberAddress"/>
             <xs:element name="baseGroup" type="ct:typeSubscriberAddress"/>
-            <xs:element name="constitGroup" type="ct:typeSubscriberAddress"
-              minOccurs="0" maxOccurs="7"/>
+            <xs:element name="constitGroup" type="ct:typeSubscriberAddress" minOccurs="0"
+              maxOccurs="7"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:element name="Group_SubscribeDataEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -201,7 +195,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Group_TrackSubscriptionEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -218,8 +212,8 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:element name="Group_AddRadioMemberEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -235,8 +229,8 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:element name="Group_RemoveRadioMemberEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -252,8 +246,8 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:element name="Group_AddCombinationEvent">
     <xs:annotation>
       <xs:documentation/>
@@ -269,8 +263,8 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:element name="Group_RemoveCombinationEvent">
     <xs:annotation>
       <xs:documentation/>

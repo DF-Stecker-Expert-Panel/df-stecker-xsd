@@ -1,20 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-OrganisationBlock"
-           targetNamespace="DR-GW-Interface/DR-GW-OrganisationBlock"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
-           xmlns:ct="DR-GW-Interface/CommonTypes">
+  xmlns="DR-GW-Interface/DR-GW-OrganisationBlock"
+  targetNamespace="DR-GW-Interface/DR-GW-OrganisationBlock" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
+  xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation>Version 1.1.1</xs:documentation>
+    <xs:documentation>Version 1.2</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
     schemaLocation="DR-GW-OrganisationBlock.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/CommonTypes"
-    schemaLocation="../Types/CommonTypes.xsd"/>
-  
-<!-- *********************************************************************** -->
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
+
+  <!-- *********************************************************************** -->
   <xs:element name="Org_Get">
     <xs:annotation>
       <xs:documentation/>
@@ -30,7 +27,7 @@
     </xs:complexType>
   </xs:element>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:element name="Org_GetList">
     <xs:annotation>
       <xs:documentation/>
@@ -39,8 +36,7 @@
       <xs:complexContent>
         <xs:extension base="ct:typeRequest">
           <xs:sequence>
-            <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId"
-              minOccurs="0"/>
+            <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId" minOccurs="0"/>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>

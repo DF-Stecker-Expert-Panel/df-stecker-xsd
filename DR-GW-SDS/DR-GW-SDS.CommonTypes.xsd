@@ -1,17 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-SDS.CommonTypes"
-           targetNamespace="DR-GW-Interface/DR-GW-SDS.CommonTypes"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:ct="DR-GW-Interface/CommonTypes">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW-Interface/DR-GW-SDS.CommonTypes"
+  targetNamespace="DR-GW-Interface/DR-GW-SDS.CommonTypes" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation>Version 1.1.1</xs:documentation>
+    <xs:documentation>Version 1.2</xs:documentation>
   </xs:annotation>
-  <xs:import namespace="DR-GW-Interface/CommonTypes"
-    schemaLocation="../Types/CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:simpleType name="typeReport">
     <xs:annotation>
       <xs:documentation/>
@@ -23,8 +19,8 @@
       <xs:enumeration value="both"/>
     </xs:restriction>
   </xs:simpleType>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:simpleType name="typeSDSType">
     <xs:annotation>
       <xs:documentation/>
@@ -62,30 +58,26 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeSDSValidity">
     <xs:annotation>
-      <xs:documentation>Validity of the SDS in case store and forward center
-        is used. The unit is seconds. Infinte validity is
-        represented by 0xFFFFFFFF</xs:documentation>
+      <xs:documentation>Validity of the SDS in case store and forward center is used. The unit is
+        seconds. Infinte validity is represented by 0xFFFFFFFF</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="value" type="xs:unsignedLong"/>
     </xs:sequence>
   </xs:complexType>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeSDSData">
     <xs:annotation>
-      <xs:documentation>2 ways of encoding the SDS. When sent from DF-Client
-        to DF-Gateway at least one node must be present, otherwise it will be
-        discarded as not valid.
-        When sent from DF-Gateway to DF-Client both nodes must be present, as
-        it is unclear if the DF-Client supports the encoding inside raw
-        "hexdata", so the readable decoded content must be present to.
-        The default charset used within the "data" node is ISO-8859-15.
-      </xs:documentation>
+      <xs:documentation>2 ways of encoding the SDS. When sent from DF-Client to DF-Gateway at least
+        one node must be present, otherwise it will be discarded as not valid. When sent from
+        DF-Gateway to DF-Client both nodes must be present, as it is unclear if the DF-Client
+        supports the encoding inside raw "hexdata", so the readable decoded content must be present
+        to. The default charset used within the "data" node is ISO-8859-15. </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="data" type="xs:string" minOccurs="0"/>
@@ -94,7 +86,7 @@
     </xs:sequence>
   </xs:complexType>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeSDS">
     <xs:annotation>
       <xs:documentation/>

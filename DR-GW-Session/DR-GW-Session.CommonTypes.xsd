@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-Session.CommonTypes"
-           targetNamespace="DR-GW-Interface/DR-GW-Session.CommonTypes"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+  xmlns="DR-GW-Interface/DR-GW-Session.CommonTypes"
+  targetNamespace="DR-GW-Interface/DR-GW-Session.CommonTypes" elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
   <xs:annotation>
-    <xs:documentation>Version 1.1.1</xs:documentation>
+    <xs:documentation>Version 1.2</xs:documentation>
   </xs:annotation>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:simpleType name="typeSuperviseTimeout">
     <xs:annotation>
       <xs:documentation>Accepted supervise timeout values.</xs:documentation>

@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
-           targetNamespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+  xmlns="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
+  targetNamespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:annotation>
-    <xs:documentation>Version 1.1.1</xs:documentation>
+    <xs:documentation>Version 1.2</xs:documentation>
   </xs:annotation>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeOrganisationBlockIdNormal">
     <xs:annotation>
       <xs:documentation/>
@@ -22,18 +21,21 @@
       <xs:element name="id6" type="xs:unsignedShort" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:simpleType name="typeOrganisationBlockIdSimple">
     <xs:annotation>
-      <xs:documentation>Organisation block send as simple normalized string. The pattern is: id1-id2-id3-id4-id5-id6</xs:documentation>
+      <xs:documentation>Organisation block send as simple normalized string. The pattern is:
+        id1-id2-id3-id4-id5-id6</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:normalizedString">
-      <xs:pattern value="(([0-9]|[1-9]\d{0,3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])-){0,5}([0-9]|[1-9]\d{0,3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])"/>
+      <xs:pattern
+        value="(([0-9]|[1-9]\d{0,3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])-){0,5}([0-9]|[1-9]\d{0,3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])"
+      />
     </xs:restriction>
   </xs:simpleType>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeOrganisationBlockId">
     <xs:annotation>
       <xs:documentation/>
@@ -43,8 +45,8 @@
       <xs:element name="orgblockIdSimple" type="typeOrganisationBlockIdSimple"/>
     </xs:choice>
   </xs:complexType>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeOrganisationBlock">
     <xs:annotation>
       <xs:documentation/>

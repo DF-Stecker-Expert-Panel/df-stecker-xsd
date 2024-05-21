@@ -1,20 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="DR-GW-Interface/DR-GW-Group.CommonTypes"
-           targetNamespace="DR-GW-Interface/DR-GW-Group.CommonTypes"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
-           xmlns:ct="DR-GW-Interface/CommonTypes">
+  xmlns="DR-GW-Interface/DR-GW-Group.CommonTypes"
+  targetNamespace="DR-GW-Interface/DR-GW-Group.CommonTypes" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" xmlns:ctO="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
+  xmlns:ct="DR-GW-Interface/CommonTypes">
   <xs:annotation>
-    <xs:documentation>Version 1.1.1</xs:documentation>
+    <xs:documentation>Version 1.2</xs:documentation>
   </xs:annotation>
   <xs:import namespace="DR-GW-Interface/DR-GW-OrganisationBlock.CommonTypes"
     schemaLocation="../DR-GW-OrganisationBlock/DR-GW-OrganisationBlock.CommonTypes.xsd"/>
-  <xs:import namespace="DR-GW-Interface/CommonTypes"
-    schemaLocation="../Types/CommonTypes.xsd"/>
-  
-<!-- *********************************************************************** -->
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
+
+  <!-- *********************************************************************** -->
   <xs:simpleType name="typeMembershipType">
     <xs:annotation>
       <xs:documentation>Specifies a group - radio subscriber membership type.</xs:documentation>
@@ -25,8 +22,8 @@
       <xs:enumeration value="visiting"/>
     </xs:restriction>
   </xs:simpleType>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:simpleType name="typeGroupTrackingMaskValues">
     <xs:annotation>
       <xs:documentation/>
@@ -49,7 +46,8 @@
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
-          <xs:documentation>TCS_GROUP_SUBSCRIPTION_MASK_VALUES_T_WSUSER_ADD_REMOVE_C </xs:documentation>
+          <xs:documentation>TCS_GROUP_SUBSCRIPTION_MASK_VALUES_T_WSUSER_ADD_REMOVE_C
+          </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="8">
@@ -70,15 +68,16 @@
     </xs:restriction>
   </xs:simpleType>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:simpleType name="typeGroupTrackingMask">
     <xs:annotation>
-      <xs:documentation>Bit mask of one or more typeGroupTrackingMaskValues using bitwise OR.</xs:documentation>
+      <xs:documentation>Bit mask of one or more typeGroupTrackingMaskValues using bitwise
+        OR.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:unsignedShort"/>
   </xs:simpleType>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeGroup">
     <xs:annotation>
       <xs:documentation/>
@@ -89,8 +88,8 @@
       <xs:element name="orgblockId" type="ctO:typeOrganisationBlockId"/>
     </xs:sequence>
   </xs:complexType>
-  
-<!-- *********************************************************************** -->
+
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeGroupSubscribeData">
     <xs:annotation>
       <xs:documentation/>
@@ -102,7 +101,7 @@
     </xs:sequence>
   </xs:complexType>
 
-<!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
   <xs:complexType name="typeGroupSubscribeDataEvent">
     <xs:annotation>
       <xs:documentation/>
