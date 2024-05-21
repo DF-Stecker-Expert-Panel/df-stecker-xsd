@@ -2,6 +2,7 @@
 
 New:
 - added Management interface to deal with NEM-API(Tactilon-API) needs
+- added txCoverageInfo element to give ability to inform clients about "transmission coverage information in a group call."
 
 Fix:
 - make alias and orgBlockId OPTIONAL in typeRadio, because this type is used also in request, so the Df-Client doesn't have to know
