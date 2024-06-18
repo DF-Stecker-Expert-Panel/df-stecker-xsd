@@ -50,7 +50,7 @@
       <xs:element name="status" type="typeStatusIndicator"/>
       <xs:element name="callType" type="typeCallType"/>
       <xs:element name="callParty" type="ct:typeSubscriberAddress"/>
-      <xs:element name="dmoState" type="xs:boolean"/>
+      <xs:element name="dmoState" type="typeDmoState"/>
       <xs:element name="emergency" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
@@ -98,6 +98,39 @@
       <xs:enumeration value="selected"/>
       <xs:enumeration value="high"/>
       <xs:enumeration value="background"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- *********************************************************************** -->
+  <xs:simpleType name="typeDmoState">
+    <xs:annotation>
+      <xs:documentation>Specifies the DMO state of the radio subscriber.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="unknown">
+        <xs:annotation>
+          <xs:documentation>Specifies that the DMO state is unknown.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="tmo">
+        <xs:annotation>
+          <xs:documentation>Specifies that the DMO state is TMO (Trunked Mode Operation).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="dmo">
+        <xs:annotation>
+          <xs:documentation>Specifies that the DMO state is DMO (Direct Mode Operation).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="unknown">
+        <xs:annotation>
+          <xs:documentation>Specifies that the DMO state is unknown.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="unknown">
+        <xs:annotation>
+          <xs:documentation>Specifies that the DMO state is unknown.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>      
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
