@@ -113,24 +113,34 @@
       </xs:enumeration>
       <xs:enumeration value="tmo">
         <xs:annotation>
-          <xs:documentation>Specifies that the DMO state is TMO (Trunked Mode Operation).</xs:documentation>
+          <xs:documentation>Specifies that the DMO state is TMO (Trunked Mode
+            Operation).</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="dmo">
         <xs:annotation>
-          <xs:documentation>Specifies that the DMO state is DMO (Direct Mode Operation).</xs:documentation>
+          <xs:documentation>Specifies that the DMO state is DMO (Direct Mode
+            Operation).</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="unknown">
+      <xs:enumeration value="idleDualWatch">
         <xs:annotation>
-          <xs:documentation>Specifies that the DMO state is unknown.</xs:documentation>
+          <xs:documentation>Specifies that the Terminal is in idle dual watch
+            state.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="unknown">
+      <xs:enumeration value="fullDualWatch">
         <xs:annotation>
-          <xs:documentation>Specifies that the DMO state is unknown.</xs:documentation>
+          <xs:documentation>Specifies that the Terminal is in full dual watch
+            state.</xs:documentation>
         </xs:annotation>
-      </xs:enumeration>      
+      </xs:enumeration>
+      <xs:enumeration value="txInhibit">
+        <xs:annotation>
+          <xs:documentation>Specifies that the Terminal has Transmit Inhibit(TxI)
+            On.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
