@@ -100,7 +100,7 @@
       <xs:element name="source" type="ct:typeAddress" minOccurs="0"/>
       <xs:element name="target" type="ct:typeAddress"/>
       <xs:element name="forward" type="ct:typeAddress" minOccurs="0"/>
-      <xs:element name="validity" type="xs:unsignedByte" minOccurs="0"/>
+      <xs:element name="validity" type="typeSDSValidity" minOccurs="0"/>
       <xs:element name="tstamp" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="encryption" type="xs:boolean" default="true" minOccurs="0"/>
       <xs:element name="e2eegroup" type="ct:typeSubscriberAddress" minOccurs="0"/>
