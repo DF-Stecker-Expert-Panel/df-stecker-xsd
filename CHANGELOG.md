@@ -5,6 +5,7 @@ New:
 - added txCoverageInfo element to give ability to inform clients about "transmission coverage information in a group call."
 - changed DR-GW-Interface/DR-GW-Radio.CommonTypes typeRadioTrackingData.dmoState from xs:boolean to enum typeDmoState
 - DR-GW-Interface/DR-GW-SDS.CommonTypes typeSDSValidity was not used, now typeSDS.validity is of type typeSDSValidity
+- DR-GW-Interface/CommonTypes typeSourceSystem new enumeration TACTILON-API
 
 Fix:
 - make alias and orgBlockId OPTIONAL in typeRadio, because this type is used also in request, so the Df-Client doesn't have to know

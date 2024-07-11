@@ -35,6 +35,7 @@
       <xs:enumeration value="DR-GW"/>
       <xs:enumeration value="TCS-API"/>
       <xs:enumeration value="TETRA"/>
+      <xs:enumeration value="TACTILON-API"/>
     </xs:restriction>
   </xs:simpleType>
 
