@@ -35,9 +35,75 @@
       <xs:complexContent>
         <xs:extension base="ct:typeRequest">
           <xs:sequence>
-            <xs:element name="target" type="ct:typeAddress"/>
-            <xs:element name="msgRef" type="xs:unsignedByte"/>
-            <xs:element name="deliveryStatus" type="xs:unsignedByte"/>
+            <xs:element name="target" type="ct:typeAddress">
+              <xs:annotation>
+                <xs:documentation>This must be the same as in the corresponding SDS_ReceiveEvent()
+                  -> "source".</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="msgRef" type="xs:unsignedByte">
+              <xs:annotation>
+                <xs:documentation>This must be the same as in the corresponding SDS_ReceiveEvent()
+                  -> "msgRef".</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="deliveryStatus" type="xs:unsignedByte">
+              <xs:annotation>
+                <xs:documentation>The value shall be according to "Delivery status" [ETSI EN 300
+                  392-2].</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="protocol" type="xs:unsignedByte">
+              <xs:annotation>
+                <xs:documentation>This must be the same as in the corresponding SDS_ReceiveEvent()
+                  -> "protocol".</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="source" type="ct:typeAddress">
+              <xs:annotation>
+                <xs:documentation>This must be the same as in the corresponding SDS_ReceiveEvent()
+                  -> "target".</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- *********************************************************************** -->
+  <xs:element name="SDS_SendShortFormReport">
+    <xs:annotation>
+      <xs:documentation> This method should only be used when SDS_ReceiveEvent() ->
+        "shortFormReportAllowed=true". Even then the standard report method SDS_SendReport is allowed.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ct:typeRequest">
+          <xs:sequence>
+            <xs:element name="target" type="ct:typeAddress">
+              <xs:annotation>
+                <xs:documentation>This must be the same as in the corresponding SDS_ReceiveEvent()
+                  -> "source".</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="msgRef" type="xs:unsignedByte">
+              <xs:annotation>
+                <xs:documentation>This must be the same as in the corresponding SDS_ReceiveEvent()
+                  -> "msgRef".</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="deliveryStatus" type="xs:unsignedByte">
+              <xs:annotation>
+                <xs:documentation>The value shall be according to "Short report type" [ETSI EN 300
+                  392-2].</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="source" type="ct:typeAddress">
+              <xs:annotation>
+                <xs:documentation>This must be the same as in the corresponding SDS_ReceiveEvent()
+                  -> "target".</xs:documentation>
+              </xs:annotation>
+            </xs:element>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>

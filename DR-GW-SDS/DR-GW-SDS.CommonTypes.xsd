@@ -104,6 +104,7 @@
       <xs:element name="tstamp" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="encryption" type="xs:boolean" default="true" minOccurs="0"/>
       <xs:element name="e2eegroup" type="ct:typeSubscriberAddress" minOccurs="0"/>
+      <xs:element name="shortFormReportAllowed" type="xs:boolean" default="false" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

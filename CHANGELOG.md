@@ -6,6 +6,7 @@ New:
 - changed DR-GW-Interface/DR-GW-Radio.CommonTypes typeRadioTrackingData.dmoState from xs:boolean to enum typeDmoState
 - DR-GW-Interface/DR-GW-SDS.CommonTypes typeSDSValidity was not used, now typeSDS.validity is of type typeSDSValidity
 - DR-GW-Interface/CommonTypes typeSourceSystem new enumeration TACTILON-API
+- DR-GW-Interface/DR-GW-SDS.CommonTypes typeSDS new element "shortFormReportAllowed" + corresponding DR-GW-Interface/DR-GW-SDS method SDS_SendShortFormReport()
 
 Fix:
 - make alias and orgBlockId OPTIONAL in typeRadio, because this type is used also in request, so the Df-Client doesn't have to know
