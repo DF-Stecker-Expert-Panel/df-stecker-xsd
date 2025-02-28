@@ -167,6 +167,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="talkingPartyBasestationId" type="xs:integer" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>When the audio interface is LS1 VoIP, then each RTP SSRC could contain
+            information over which TBS the talking party currently speaks. "The channel identity
+            shall be unique within the Airbus DS TETRA system. It carries the identity of the
+            channel from where the NISI or OSTE frame entered IP network. (Either from TBS or from
+            Switch unit on DXT)." </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <!-- *********************************************************************** -->
