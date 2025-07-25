@@ -30,7 +30,7 @@
     type="tns:DR-GW-Management.EventsInterface">
     <soap:binding transport="http://schemas.microsoft.com/soap/websocket"/>
     <operation name="management_Event">
-      <soap:operation soapAction="DR-GW-Interface/DR-GW-Group.Events:management_EventIn"
+      <soap:operation soapAction="DR-GW-Interface/DR-GW-Management.Events:management_EventIn"
         style="document"/>
       <input>
         <soap:body use="literal"/>

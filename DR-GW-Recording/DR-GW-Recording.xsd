@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="DR-GW-Interface/DR-GW-Recording"
+  targetNamespace="DR-GW-Interface/DR-GW-Recording" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" xmlns:ct="DR-GW-Interface/CommonTypes"
+  xmlns:ctR="DR-GW-Interface/DR-GW-Recording.CommonTypes">
+  <!-- *************************************************************** -->
+  <xs:annotation>
+    <xs:documentation>Version 1.2</xs:documentation>
+    <xs:documentation>DR-GW-Recording. Use for Archive recording applications. </xs:documentation>
+  </xs:annotation>
+  <!-- *************************************************************** -->
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
+  <xs:import namespace="DR-GW-Interface/DR-GW-Recording.CommonTypes"
+    schemaLocation="DR-GW-Recording.CommonTypes.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:element name="Record_Group" type="typeRecordRequest">
+    <xs:annotation>
+      <xs:documentation>The method is used to place group under either statistical(signaling and
+        data) or active(audio and data) recording. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <!-- *************************************************************** -->
+  <xs:element name="Record_Individual" type="typeRecordRequest">
+    <xs:annotation>
+      <xs:documentation>The method is used to place individual subscriber(radio or client
+        application) under either statistical(signaling and data) or active(audio and data)
+        recording. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeRecordRequest">
+    <xs:complexContent>
+      <xs:extension base="ct:typeRequest">
+        <xs:sequence>
+          <xs:element name="sel" type="ctR:typeSelection"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

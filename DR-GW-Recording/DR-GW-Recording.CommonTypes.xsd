@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns="DR-GW-Interface/DR-GW-Recording.CommonTypes"
+  targetNamespace="DR-GW-Interface/DR-GW-Recording.CommonTypes" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" xmlns:ct="DR-GW-Interface/CommonTypes">
+  <!-- *************************************************************** -->
+  <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
+  <!-- *************************************************************** -->
+  <xs:complexType name="typeSelection">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" type="typeRecordingLevel"/>
+      <xs:element name="target" type="ct:typeAddress"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- *************************************************************** -->
+  <xs:simpleType name="typeRecordingLevel">
+    <xs:annotation>
+      <xs:documentation>Defines if the target is statistically or actively monitored.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="no">
+        <xs:annotation>
+          <xs:documentation>No recording. Used to stop the recording. </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="active">
+        <xs:annotation>
+          <xs:documentation>AR active recording level.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="statistical">
+        <xs:annotation>
+          <xs:documentation>AR statistical recording level.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
