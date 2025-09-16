@@ -6,7 +6,7 @@
   <!-- *************************************************************** -->
   <xs:import namespace="DR-GW-Interface/CommonTypes" schemaLocation="../Types/CommonTypes.xsd"/>
   <!-- *************************************************************** -->
-  <xs:complexType name="typeSelection">
+  <xs:complexType name="typeRecordingTarget">
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
