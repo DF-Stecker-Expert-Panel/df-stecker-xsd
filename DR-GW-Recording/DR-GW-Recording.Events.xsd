@@ -40,7 +40,7 @@
     <xs:complexContent>
       <xs:extension base="ct:typeEvent">
         <xs:sequence>
-          <xs:element name="sel" type="ctR:typeSelection"/>
+          <xs:element name="sel" type="ctR:typeRecordingTarget"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
