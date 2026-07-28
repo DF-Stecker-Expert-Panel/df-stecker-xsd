@@ -24,6 +24,14 @@
     <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
     <part name="params" element="import1:SDS_Response" />
   </message>
+  <message name="sDS_SendShortFormReportIn">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="params" element="tns:SDS_SendShortFormReport" />
+  </message>
+  <message name="sDS_SendShortFormReportOut">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="params" element="import1:SDS_Response" />
+  </message>
   <portType name="DR-GW-SDSInterface">
     <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
     <operation name="SDS_Send">
@@ -35,6 +43,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
       <input message="tns:sDS_SendReportIn" />
       <output message="tns:sDS_SendReportOut" />
+    </operation>
+    <operation name="SDS_SendShortFormReport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:sDS_SendShortFormReportIn" />
+      <output message="tns:sDS_SendShortFormReportOut" />
     </operation>
   </portType>
   <binding name="WebSocketBinding_DR-GW-SDSInterface" type="tns:DR-GW-SDSInterface">
@@ -50,6 +63,15 @@
     </operation>
     <operation name="SDS_SendReport">
       <soap:operation soapAction="DR-GW-Interface/DR-GW-SDS:sDS_SendReportIn" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SDS_SendShortFormReport">
+      <soap:operation soapAction="DR-GW-Interface/DR-GW-SDS:sDS_SendShortFormReportIn" style="document" />
       <input>
         <soap:body use="literal" />
       </input>
