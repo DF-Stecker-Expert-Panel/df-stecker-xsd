@@ -192,7 +192,7 @@
       <xs:complexContent>
         <xs:extension base="ct:typeRequest">
           <xs:sequence>
-            <xs:element name="group" type="ctG:typeGroupSubscribeData" maxOccurs="unbounded"/>
+            <xs:element name="group" type="ctG:typeGroupSubscribeData" />
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>

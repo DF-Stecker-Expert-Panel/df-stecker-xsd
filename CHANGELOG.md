@@ -13,6 +13,7 @@ New:
 Fix:
 - make alias and orgBlockId OPTIONAL in typeRadio, because this type is used also in request, so the Df-Client doesn't have to know
 - change group element type in typeGroupAppMemberEvent to typeSubscriberAddress, to unify it with other group event types
+- [#CR-GH-5] DR-GW-Group/DR-GW-Group limit group subscription requests to a single group per request.
 ---
 # Version: 1.1.1
 
